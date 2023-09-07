@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.custom-div {
+  @apply flex items-center justify-center border-0 border-orange rounded-sm hover:border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700 ;
+}
