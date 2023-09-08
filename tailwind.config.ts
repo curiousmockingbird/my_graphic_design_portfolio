@@ -16,6 +16,8 @@ const config: Config = {
       'tahiti': '#3ab7bf',
       'orange': '#fb923c',
       'gray': '#f9fafb',
+      'transparent': 'rgba(255, 255, 255, 0)',
+      'white': '#f8fafc',
     },
   },
   plugins: [],
