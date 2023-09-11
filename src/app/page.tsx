@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 import Navbar from './navBar/page'
 
@@ -10,40 +11,45 @@ export default function Home() {
     <Navbar/>
       <div className='custom-div'>
         <Link
-          href="/illustrations">
-          <h2>
+          href="/illustrations"
+          className='sections'>            
+          <h2 className="nav-items">
             Illustrations & Posters{' '}
           </h2>
         </Link>
       </div>
       <div className='custom-div'>
         <Link
-          href="/illustrations">
-          <h2>
+          href="/illustrations"
+          className='sections'>
+          <h2 className="nav-items">
             Ballet Nacional de Cuba{' '}
           </h2>
         </Link>
       </div>
       <div className='custom-div'>
         <Link
-          href="/illustrations">
-          <h2>
+          href="/illustrations"
+          className='sections'>
+          <h2 className="nav-items">
             Motion Graphics & Animations{' '}
           </h2>
         </Link>
       </div>
       <div className='custom-div'>
         <Link
-          href="/illustrations">
-          <h2>
+          href="/illustrations"
+          className='sections'>
+          <h2 className="nav-items">
             Life in Havana{' '}
           </h2>
         </Link>
       </div>
       <div className='custom-div'>
         <Link
-          href="/illustrations">
-          <h2>
+          href="/illustrations"
+          className='sections'>
+          <h2 className="nav-items">
             #WeThePeople{' '}
           </h2>
         </Link>

@@ -33,3 +33,7 @@ body {
 .nav-items {
   @apply text-white px-2 hover:text-tahiti;
 }
+
+.sections {
+  @apply p-4 lg:p-6 custom-div;
+}
