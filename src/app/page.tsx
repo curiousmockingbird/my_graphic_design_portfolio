@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <body>
     <div className='flex flex-col'>
-    <main className='mx-auto w-full lg:w-4/5'>
+    <main className='main'>
     <div className='h-screen lg:h-screen grid grid-cols-1 lg:grid-cols-2'>
     <Navbar/>
       <div className='custom-div'>

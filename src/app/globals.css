@@ -37,3 +37,11 @@ body {
 .sections {
   @apply p-4 lg:p-6 custom-div;
 }
+
+.main {
+  @apply mx-auto w-full lg:w-4/5;
+}
+
+.main-illustrations {
+  @apply mx-auto w-full lg:w-3/5;
+}
