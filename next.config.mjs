@@ -1,8 +1,10 @@
+
 /** @type {import('next').NextConfig} */
+import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
     images: {
         domains: ['res.cloudinary.com'],
       },
 }
 
-module.exports = nextConfig
+export default withPlaiceholder(nextConfig)

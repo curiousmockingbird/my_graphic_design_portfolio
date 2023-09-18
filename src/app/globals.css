@@ -27,7 +27,11 @@ body {
 }
 
 .custom-div {
-  @apply flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700 ;
+  @apply flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700;
+}
+
+.custom-div-illustrations {
+  @apply border-transparent border-2 rounded-3xl hover:rounded-none hover:border-tahiti transition-all duration-700;
 }
 
 .nav-items {
@@ -43,5 +47,5 @@ body {
 }
 
 .main-illustrations {
-  @apply mx-auto w-full lg:w-3/5;
+  @apply mx-auto w-full lg:w-4/5;
 }

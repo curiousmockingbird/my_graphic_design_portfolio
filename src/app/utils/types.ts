@@ -1,7 +1,18 @@
 export interface ImageProps {
     id: number
-    height: string
-    width: string
+    height: number
+    width: number
     public_id: string
     secure_url: string
+    format: string
+    blurDataUrl?: string
   }
+
+  // export interface Photo {
+  //   height: number
+  //   width: number
+  //   public_id: string
+  //   secure_url: string
+  //   format: string
+  //   blurDataUrl?: string
+  // }

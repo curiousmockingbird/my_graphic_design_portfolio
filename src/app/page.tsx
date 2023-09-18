@@ -1,4 +1,3 @@
-
 import Link from 'next/link'
 import Navbar from './navBar/page'
 
@@ -60,3 +59,6 @@ export default function Home() {
     </body>
   )
 }
+
+
+
