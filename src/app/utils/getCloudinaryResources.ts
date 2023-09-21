@@ -1,4 +1,5 @@
 import {v2 as cloudinary} from 'cloudinary'
+import { cache } from 'react'
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -7,4 +8,10 @@ cloudinary.config({
   secure: true,
 })
 
-export default cloudinary
+export const revalidate = 3600
+
+export const getCloudinaryResources = cache(() => {
+  return cloudinary.search.expression(`folder=${process.env.CLOUDINARY_FOLDER}/*`).execute();
+})
+
+

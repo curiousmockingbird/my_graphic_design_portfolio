@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Navbar from './navBar/page'
+import Navbar from './components/navBar/page'
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
     <div className='flex flex-col'>
     <main className='main'>
     <div className='h-screen lg:h-screen grid grid-cols-1 lg:grid-cols-2'>
-    <Navbar/>
+    <Navbar title='Holaaaa'/>
       <div className='custom-div'>
         <Link
           href="/illustrations"
