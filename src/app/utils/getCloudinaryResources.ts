@@ -1,5 +1,5 @@
 import {v2 as cloudinary} from 'cloudinary'
-import { cache } from 'react'
+// import {cache} from 'react'
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -8,10 +8,16 @@ cloudinary.config({
   secure: true,
 })
 
-export const revalidate = 3600
+// export const revalidate = 3600  // revalidate the data at most every hour
 
-export const getCloudinaryResources = cache(() => {
-  return cloudinary.search.expression(`folder=${process.env.CLOUDINARY_FOLDER}/*`).execute();
-})
+// export const getCloudinaryResources = cache(async () => {
+//   console.log("Function executed!");
+//   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.CLOUDINARY_FOLDER}/*`).execute();
+//   return cloudinarySearchPromise;
+// })
 
-
+export default async function getCloudinaryResources() {
+  // console.log("Function executed!");
+  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.CLOUDINARY_FOLDER}/*`).execute();
+  return cloudinarySearchPromise;
+}

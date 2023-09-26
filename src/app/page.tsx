@@ -1,20 +1,24 @@
 import Link from 'next/link'
-import Navbar from './components/navBar/page'
-
-export default function Home() {
+import Navbar from './components/NavBar'
+// import IllustrationsList from './components/IllustrationsList'
+const Home = () => {
   return (
-    <body>
+    <div>
     <div className='flex flex-col'>
     <main className='main'>
     <div className='h-screen lg:h-screen grid grid-cols-1 lg:grid-cols-2'>
     <Navbar title='Holaaaa'/>
+      {/* <IllustrationsList/> */}
       <div className='custom-div'>
         <Link
           href="/illustrations"
-          className='sections'>            
-          <h2 className="nav-items">
-            Illustrations & Posters{' '}
-          </h2>
+          className='sections'>
+          <h2 className={`nav-items`}>
+          Illustrations & Posters{' '}
+          </h2>            
+          <div className="flex items-center justify-center">
+  <span className="transition-all duration-300 transform hover:translate-x-3">→</span>
+</div>
         </Link>
       </div>
       <div className='custom-div'>
@@ -53,12 +57,20 @@ export default function Home() {
           </h2>
         </Link>
       </div>
+      <div className='custom-div'>
+      {/* <div className="flex items-center justify-center h-screen bg-gray-100">
+  <span className="arrow text-3xl text-gray-700 hover:text-gray-900 transition-all duration-300 transform hover:translate-x-3">→</span>
+</div> */}
+
+      </div>
     </div>
     </main>
     </div>
-    </body>
+    </div>
   )
 }
+
+export default Home
 
 
 
