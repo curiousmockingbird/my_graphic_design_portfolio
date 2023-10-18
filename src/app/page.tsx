@@ -57,12 +57,6 @@ const Home = () => {
           </h2>
         </Link>
       </div>
-      <div className='custom-div'>
-      {/* <div className="flex items-center justify-center h-screen bg-gray-100">
-  <span className="arrow text-3xl text-gray-700 hover:text-gray-900 transition-all duration-300 transform hover:translate-x-3">→</span>
-</div> */}
-
-      </div>
     </div>
     </main>
     </div>

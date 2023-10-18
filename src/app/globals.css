@@ -38,6 +38,10 @@ body {
   @apply text-white px-2 hover:text-tahiti;
 }
 
+.section-header {
+  @apply p-4 lg:p-6 flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700;
+}
+
 .sections {
   @apply p-4 lg:p-6 custom-div;
 }

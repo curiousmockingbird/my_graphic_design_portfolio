@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import getBase64Image from '@/app/utils/blurredPlaceholder'
+// import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
 const IllustrationsList = () => {
@@ -21,22 +21,27 @@ const IllustrationsList = () => {
 
   return (
     <main className='main-illustrations'>
-      <div className='columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4'>
+      <div className='grid grid-cols-4 gap-4 my-4'>
         <Link
           href="/"
           className='sections'>
           <h2 className="nav-items">
-            Illustrations & Posters{' '}
+            Go back{' '}
           </h2>
         </Link>
+      <h2 className="section-header col-span-3">
+            Illustrations & Posters{' '}
+      </h2>
+      </div>
+      <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4'>
         {data.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
             <div key={resource.secure_url}
-              className='bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
+              className='cursor-zoom-in bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
               <Image
-                className='custom-div-illustrations'
+                className='grayscale custom-div-illustrations hover:grayscale-0'
                 width={resource.width}
                 height={resource.height}
                 src={resource.secure_url}
