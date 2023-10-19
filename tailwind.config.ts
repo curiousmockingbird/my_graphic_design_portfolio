@@ -18,6 +18,7 @@ const config: Config = {
       'gray': '#f9fafb',
       'transparent': 'rgba(255, 255, 255, 0)',
       'white': '#f8fafc',
+      'black': '#000000',
     },
   },
   plugins: [],

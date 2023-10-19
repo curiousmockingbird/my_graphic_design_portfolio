@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
+// import Alert from '@mui/material/Alert';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
@@ -21,19 +23,17 @@ const IllustrationsList = () => {
 
   return (
     <main className='main-illustrations'>
-      <div className='grid grid-cols-4 gap-4 my-4'>
+      <div className='grid grid-cols-4 gap-4  sticky top-0 bg-black z-10'>
         <Link
           href="/"
-          className='sections'>
-          <h2 className="nav-items">
-            Go back{' '}
-          </h2>
+          className='back-arrow text-white hover:text-tahiti my-4'>
+          <ArrowBackIcon/>
         </Link>
-      <h2 className="section-header col-span-3">
-            Illustrations & Posters{' '}
-      </h2>
+        <h2 className="section-header col-span-3 my-4">
+          Illustrations & Posters{' '}
+        </h2>
       </div>
-      <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4'>
+      <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
         {data.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];

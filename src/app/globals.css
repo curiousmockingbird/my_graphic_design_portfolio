@@ -34,17 +34,22 @@ body {
   @apply border-transparent border-2 rounded-3xl hover:rounded-none hover:border-tahiti transition-all duration-700;
 }
 
-.nav-items {
-  @apply text-white px-2 hover:text-tahiti;
-}
+/* .nav-items {
+  @apply underline ;
+} */
 
 .section-header {
-  @apply p-4 lg:p-6 flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700;
+  @apply text-tahiti p-4 lg:p-6 flex items-center justify-center border-2 rounded-3xl border-tahiti underline underline-offset-8;
 }
 
 .sections {
-  @apply p-4 lg:p-6 custom-div;
+  @apply no-underline p-4 text-white px-2 hover:text-tahiti lg:p-6 flex items-center justify-center hover:underline hover:underline-offset-8 transition-all duration-700;
 }
+
+.back-arrow {
+  @apply  p-4 text-white px-2 border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti hover:text-tahiti lg:p-6 flex items-center justify-center transition-all duration-700;
+}
+
 
 .main {
   @apply mx-auto w-full lg:w-4/5;
