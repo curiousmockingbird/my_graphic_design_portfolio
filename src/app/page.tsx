@@ -7,7 +7,7 @@ const Home = () => {
     <div className='flex flex-col'>
     <main className='main'>
     <div className='h-screen lg:h-screen grid grid-cols-1 lg:grid-cols-2'>
-    <Navbar title='Holaaaa'/>
+    <Navbar/>
       {/* <IllustrationsList/> */}
       <div className='custom-div'>
         <Link
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <div className='custom-div'>
         <Link
-          href="/illustrations"
+          href="/ballet"
           className='sections'>
           <h2 className="nav-items">
             Ballet Nacional de Cuba{' '}

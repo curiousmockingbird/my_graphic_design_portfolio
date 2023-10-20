@@ -3,15 +3,14 @@ import type { ImageProps } from './../utils/types'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Image from 'next/image'
-import Link from 'next/link'
+import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
 const IllustrationsList = () => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['CloudinaryImages'],
+    queryKey: ['Illustrations'],
     queryFn: async () => {
       const { data } = await axios.get('api/illustrations/fetch')
       return data.image.resources as ImageProps[];
@@ -23,16 +22,7 @@ const IllustrationsList = () => {
 
   return (
     <main className='main-illustrations'>
-      <div className='grid grid-cols-4 gap-4  sticky top-0 bg-black z-10'>
-        <Link
-          href="/"
-          className='back-arrow text-white hover:text-tahiti my-4'>
-          <ArrowBackIcon/>
-        </Link>
-        <h2 className="section-header col-span-3 my-4">
-          Illustrations & Posters{' '}
-        </h2>
-      </div>
+      <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
         {data.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
@@ -68,7 +58,7 @@ export default IllustrationsList
 // import getCloudinaryResources from '@/app/utils/getCloudinaryResources'
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 
-// async function getCloudinaryImages() {
+// async function getIllustrations() {
 //   // Start the Cloudinary search without waiting for its result
 //   const cloudinarySearchPromise = getCloudinaryResources();
 

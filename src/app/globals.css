@@ -47,7 +47,7 @@ body {
 }
 
 .back-arrow {
-  @apply  p-4 text-white px-2 border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti hover:text-tahiti lg:p-6 flex items-center justify-center transition-all duration-700;
+  @apply text-orange border-orange rounded-3xl border-2 hover:rounded-sm hover:border-tahiti hover:text-tahiti lg:p-6 flex items-center justify-center transition-all duration-700;
 }
 
 

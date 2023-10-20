@@ -16,8 +16,13 @@ cloudinary.config({
 //   return cloudinarySearchPromise;
 // })
 
-export default async function getCloudinaryResources() {
+export async function getIllustrations() {
   // console.log("Function executed!");
-  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.CLOUDINARY_FOLDER}/*`).execute();
+  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
+  return cloudinarySearchPromise;
+}
+export async function getBallet() {
+  // console.log("Function executed!");
+  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.BALLET_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Navbar(props:any) {
+export default function Navbar() {
   return (
     <nav className="custom-div">
         <div className="p-4 lg:p-6 custom-div">
