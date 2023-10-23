@@ -34,9 +34,9 @@ body {
   @apply border-transparent border-2 rounded-3xl hover:rounded-none hover:border-tahiti transition-all duration-700;
 }
 
-/* .nav-items {
-  @apply underline ;
-} */
+.nav-items {
+  @apply mx-2;
+}
 
 .section-header {
   @apply text-tahiti p-4 lg:p-6 flex items-center justify-center border-2 rounded-3xl border-tahiti underline underline-offset-8;

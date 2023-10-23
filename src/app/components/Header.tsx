@@ -7,7 +7,7 @@ export default function Header({ headerText }: { headerText: string }) {
         <Link
           href="/"
           className='group back-arrow text-white hover:text-tahiti my-4 '>
-          <ArrowBackIcon className='group-hover:-translate-x-2 '/>
+          <ArrowBackIcon className='group-hover:-translate-x-2 transition-all duration-700'/>
         </Link>
         <h2 className="section-header col-span-3 my-4">
           {headerText}

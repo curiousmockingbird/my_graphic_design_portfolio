@@ -26,3 +26,13 @@ export async function getBallet() {
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.BALLET_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
 }
+export async function getHavana() {
+  // console.log("Function executed!");
+  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.HAVANA_FOLDER}/*`).execute();
+  return cloudinarySearchPromise;
+}
+export async function getWethepeople() {
+  // console.log("Function executed!");
+  const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.WETHEPEOPLE_FOLDER}/*`).execute();
+  return cloudinarySearchPromise;
+}
