@@ -9,7 +9,7 @@ import Header from '../components/Header'
 
 const Ballet = () => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['Ballet'],
+    queryKey: ['Havana'],
     queryFn: async () => {
       const { data } = await axios.get('api/havana/fetch')
       return data.image.resources as ImageProps[];
@@ -20,7 +20,7 @@ const Ballet = () => {
   if (isError) return <div>Error</div>
 
   return (
-    <main className='main-illustrations'>
+    <main className='main'>
       <Header headerText='Life in Havana' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
         {data.map((resource: ImageProps) => {

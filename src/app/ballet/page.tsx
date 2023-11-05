@@ -20,7 +20,7 @@ const Ballet = () => {
   if (isError) return <div>Error</div>
 
   return (
-    <main className='main-illustrations'>
+    <main className='main'>
       <Header headerText='Ballet Nacional de Cuba' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
         {data.map((resource: ImageProps) => {

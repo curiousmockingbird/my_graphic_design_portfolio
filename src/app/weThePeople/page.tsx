@@ -5,14 +5,16 @@ import axios from 'axios'
 import Image from 'next/image'
 import Header from '../components/Header'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Link from 'next/link'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+// import Link from 'next/link'
 
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
 const Ballet = () => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['Ballet'],
+    queryKey: ['WeThePeople'],
     queryFn: async () => {
       const { data } = await axios.get('api/wethepeople/fetch')
       return data.image.resources as ImageProps[];
@@ -26,10 +28,12 @@ const Ballet = () => {
     <main className='relative main-illustrations'>
       <Header headerText='#WeThePeople' />
       <header className='absolute top-1/2 left-1/2 z-10'>
+        <div className='group'>
         <a href="https://drive.google.com/file/d/1iprkzyHoIUtwY0B9vTkNXA4Apo2Fqxen/view" target="_blank" rel="noopener noreferrer"
-          className='group back-arrow text-white hover:text-tahiti my-4'>
-          <ArrowBackIcon className='group-hover:-translate-x-2 transition-all duration-700' />
+          className='back-arrow text-white hover:text-tahiti my-4'>
+          <ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' />
         </a>
+        </div>
         {/* <Link
           href="/"
           className='group back-arrow text-white hover:text-tahiti my-4'>
