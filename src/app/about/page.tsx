@@ -43,7 +43,7 @@ const About = () => {
                             Hello! I'm [Your Name], a passionate Graphic Designer with over [X years] of experience. I specialize in creating unique designs that capture the essence of a brand and resonate with its audience. From logos to comprehensive branding projects, I have worked with various clients across different industries.
                         </p> */}
                         <p className="text-lg leading-relaxed">
-                            Over the years, I have honed my skills in various design tools like Adobe Creative Suite, Figma, and many others. I am always eager to learn and adapt to the ever-evolving world of design. When I am not designing, you can find me exploring nature, capturing moments with my camera, or diving into a new book.
+                            I am always eager to learn and adapt to the ever-evolving world of design. When I am not designing, you can find me exploring nature, capturing moments with my camera, or diving into a new book.
                         </p>
                         </div>
                     </div>
