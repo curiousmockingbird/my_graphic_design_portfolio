@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useForm } from 'react-hook-form';
 import Header from '../components/Header'
+import Image from 'next/image';
 
 const About = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -28,10 +29,12 @@ const About = () => {
         <main className='main grid grid-cols-2'>
         <div className="grid grid-cols-2` bg-orange">
                     <div className='bg-tahiti flex items-center justify-center'>
-                    <img 
+                    <Image 
                         src="/profile_pic.jpg" 
                         alt="Your Name" 
                         className="rounded-full w-3/4"
+                        width={200}
+                        height={200}
                     />
                     </div>
                     <div className='px-6 flex items-center'>
@@ -40,7 +43,7 @@ const About = () => {
                             Hello! I'm [Your Name], a passionate Graphic Designer with over [X years] of experience. I specialize in creating unique designs that capture the essence of a brand and resonate with its audience. From logos to comprehensive branding projects, I have worked with various clients across different industries.
                         </p> */}
                         <p className="text-lg leading-relaxed">
-                            Over the years, I've honed my skills in various design tools like Adobe Creative Suite, Figma, and many others. I'm always eager to learn and adapt to the ever-evolving world of design. When I'm not designing, you can find me exploring nature, capturing moments with my camera, or diving into a new book.
+                            Over the years, I have honed my skills in various design tools like Adobe Creative Suite, Figma, and many others. I am always eager to learn and adapt to the ever-evolving world of design. When I am not designing, you can find me exploring nature, capturing moments with my camera, or diving into a new book.
                         </p>
                         </div>
                     </div>
