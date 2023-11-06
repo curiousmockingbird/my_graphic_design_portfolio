@@ -1,5 +1,5 @@
 import {v2 as cloudinary} from 'cloudinary'
-// import {cache} from 'react'
+import {cache} from 'react'
 
 export const revalidate = 3600 
 
@@ -18,23 +18,25 @@ cloudinary.config({
 //   return cloudinarySearchPromise;
 // })
 
-export async function getIllustrations() {
+export const getIllustrations = cache(async () => {
   // console.log("Function executed!");
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
-}
-export async function getBallet() {
+})
+
+export const getBallet= cache(async () => {
   // console.log("Function executed!");
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.BALLET_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
-}
-export async function getHavana() {
-  // console.log("Function executed!");
+})
+
+export const getHavana = cache(async () => {
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.HAVANA_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
-}
-export async function getWethepeople() {
+})
+
+export const getWethepeople = cache(async () => {
   // console.log("Function executed!");
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.WETHEPEOPLE_FOLDER}/*`).execute();
   return cloudinarySearchPromise;
-}
+})
