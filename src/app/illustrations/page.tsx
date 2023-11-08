@@ -5,7 +5,7 @@ import type { ImageProps } from './../utils/types'
 import Image from 'next/image'
 import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
-// import getBase64Image from '@/app/utils/blurredPlaceholder'
+import getBase64Image from '@/app/utils/blurredPlaceholder'
 // import { getIllustrations } from '../utils/getCloudinaryResources';
 import {v2 as cloudinary} from 'cloudinary' 
 
@@ -19,20 +19,24 @@ cloudinary.config({
 export const dynamic = 'force-dynamic';
 
 async function getIllustrations() {
-// // IllustrationsList = () => {
-// //   const { data, isLoading, isError } = useQuery({
-// //     queryKey: ['Illustrations'],
-// //     queryFn: async () => {
-// //       const { data } = await axios.get('api/illustrations/fetch')
-// //       return data.image.resources as ImageProps[];
-// //     }
-// //   })
-
-//   // if (isLoading) return <div>Data is Loading</div>
-//   // if (isError) return <div>Error</div>
 
 const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
-return image;  
+  const blurImagePromises = Promise.all(image.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
+
+  // Wait for both the Cloudinary search and the blurred image generation to finish
+  const [results, imagesWithBlurDataUrls] = await Promise.all([image, blurImagePromises]);
+
+//   Assemble reducedResults using the results from the Cloudinary search and the blurred images
+  const reducedResults: ImageProps[] = results.resources.map((result:ImageProps, i:any) => ({
+    id: i,
+    height: result.height,
+    width: result.width,
+    secure_url: result.secure_url,
+    public_id: result.public_id,
+    format: result.format,
+    blurDataUrl: imagesWithBlurDataUrls[i]
+  }));
+return reducedResults;  
 }
 
 // const getIllustrationsList = async () => {
@@ -56,7 +60,7 @@ export default async function IllustrationsList(){
     <main className='main-illustrations'>
       <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
-        {image.resources.map((resource: ImageProps) => {
+        {image.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -69,8 +73,8 @@ export default async function IllustrationsList(){
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
-                // blurDataURL={resource.blurDataUrl}
-                // placeholder="blur"
+                blurDataURL={resource.blurDataUrl}
+                placeholder="blur"
               />
               {/* <p>{filename}</p> */}
             </div>
