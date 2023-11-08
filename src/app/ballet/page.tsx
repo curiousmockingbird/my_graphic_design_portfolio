@@ -1,29 +1,25 @@
-'use client'
 import type { ImageProps } from './../utils/types'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
 import Image from 'next/image'
 import Header from '../components/Header'
-// import getBase64Image from '@/app/utils/blurredPlaceholder'
 
+export default async function Ballet(){
+  const res = await fetch('http://localhost:3000/api/ballet/fetch', {
+    cache: 'no-cache'
+  });
 
-const Ballet = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['Ballet'],
-    queryFn: async () => {
-      const { data } = await axios.get('api/ballet/fetch')
-      return data.image.resources as ImageProps[];
-    }
-  })
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  } 
+  const data =  await res.json()
 
-  if (isLoading) return <div>Data is Loading</div>
-  if (isError) return <div>Error</div>
+  // const data = await getIllustrations();
 
   return (
-    <main className='main'>
-      <Header headerText='Ballet Nacional de Cuba' />
+    <main className='main-illustrations'>
+      <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
-        {data.map((resource: ImageProps) => {
+        {data.reducedResults.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -36,8 +32,8 @@ const Ballet = () => {
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
-              //   blurDataURL={resource.blurDataUrl}
-              //   placeholder="blur"
+                blurDataURL={resource.blurDataUrl}
+                placeholder="blur"
               />
               {/* <p>{filename}</p> */}
             </div>
@@ -46,7 +42,4 @@ const Ballet = () => {
       </div>
     </main>
   )
-
 }
-
-export default Ballet

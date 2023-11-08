@@ -1,29 +1,22 @@
 import type { ImageProps } from '../utils/types'
-// import { useQuery } from '@tanstack/react-query'
-// import axios from 'axios'
 import Image from 'next/image'
 import Header from '../components/Header'
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { getWethepeople } from '../utils/getCloudinaryResources'
-
-// import Link from 'next/link'
-
-// import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
-export default async function WeThePeople () {
-  // const { data, isLoading, isError } = useQuery({
-  //   queryKey: ['WeThePeople'],
-  //   queryFn: async () => {
-  //     const { data } = await axios.get('api/wethepeople/fetch')
-  //     return data.image.resources as ImageProps[];
-  //   }
-  // })
+export default async function WeThePeople(){
+  const res = await fetch('http://localhost:3000/api/wethepeople/fetch', {
+    cache: 'no-cache'
+  });
 
-  // if (isLoading) return <div>Data is Loading</div>
-  // if (isError) return <div>Error</div>
-  const data = await getWethepeople();
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  } 
+  const data =  await res.json()
+
+  // const data = await getIllustrations();
 
   return (
     <main className='relative main-illustrations'>
@@ -42,7 +35,7 @@ export default async function WeThePeople () {
         </Link> */}
       </header>
       <div className='z-0'>
-        {data.resources.map((resource: ImageProps) => {
+        {data.reducedResults.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -55,8 +48,8 @@ export default async function WeThePeople () {
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
-              //   blurDataURL={resource.blurDataUrl}
-              //   placeholder="blur"
+                blurDataURL={resource.blurDataUrl}
+                placeholder="blur"
               />
               {/* <p>{filename}</p> */}
             </div>
