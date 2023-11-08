@@ -6,9 +6,19 @@ import Image from 'next/image'
 import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
-import { getIllustrations } from '../utils/getCloudinaryResources';
+// import { getIllustrations } from '../utils/getCloudinaryResources';
+import {v2 as cloudinary} from 'cloudinary' 
 
-// async function getIllustrations() {
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
+})
+
+export const revalidate = 10
+
+async function getIllustrations() {
 // // IllustrationsList = () => {
 // //   const { data, isLoading, isError } = useQuery({
 // //     queryKey: ['Illustrations'],
@@ -20,8 +30,10 @@ import { getIllustrations } from '../utils/getCloudinaryResources';
 
 //   // if (isLoading) return <div>Data is Loading</div>
 //   // if (isError) return <div>Error</div>
-  
-// }
+
+const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
+return image;  
+}
 
 // const getIllustrationsList = async () => {
 //   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
