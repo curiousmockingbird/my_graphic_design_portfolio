@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Header from '../components/Header'
 
 export default async function Havana(){
-  const res = await fetch('http://localhost:3000/api/havana/fetch', {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const res = await fetch(`${baseUrl}/api/havana/fetch`, {
     cache: 'no-cache'
   });
 

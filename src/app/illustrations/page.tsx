@@ -23,7 +23,8 @@ import Header from '../components/Header'
 // }
 
 export default async function IllustrationsList(){
-  const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const res = await fetch(`${baseUrl}/api/illustrations/fetch`, {
     cache: 'no-cache'
   });
 

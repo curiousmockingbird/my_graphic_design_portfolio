@@ -6,7 +6,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 export default async function WeThePeople(){
-  const res = await fetch('http://localhost:3000/api/wethepeople/fetch', {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const res = await fetch(`${baseUrl}/api/wethepeople/fetch`, {
     cache: 'no-cache'
   });
 
