@@ -16,7 +16,7 @@ cloudinary.config({
   secure: true,
 })
 
-export const revalidate = 10
+export const dynamic = 'force-dynamic';
 
 async function getIllustrations() {
 // // IllustrationsList = () => {
