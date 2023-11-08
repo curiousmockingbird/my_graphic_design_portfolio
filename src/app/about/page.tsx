@@ -33,8 +33,8 @@ const About = () => {
                         src="/profile_pic.jpg" 
                         alt="Your Name" 
                         className="rounded-full w-3/4"
-                        width={200}
-                        height={200}
+                        width={400}
+                        height={400}
                     />
                     </div>
                     <div className='px-6 flex items-center'>

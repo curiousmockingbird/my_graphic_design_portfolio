@@ -1,7 +1,7 @@
 import {v2 as cloudinary} from 'cloudinary'
 import {cache} from 'react'
 
-export const revalidate = 3600 
+export const revalidate = 1800; 
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -24,7 +24,7 @@ export const getIllustrations = cache(async () => {
   return cloudinarySearchPromise;
 })
 
-export const getBallet= cache(async () => {
+export const getBallet = cache(async () => {
   // console.log("Function executed!");
   const cloudinarySearchPromise = await cloudinary.search.expression(`folder=${process.env.BALLET_FOLDER}/*`).execute();
   return cloudinarySearchPromise;

@@ -8,12 +8,14 @@ export default function Navbar() {
           <div className="flex space-x-4 ">
             <Link href="/about"
              className='text-white  hover:text-tahiti'>About
-             <InfoOutlinedIcon className="nav-items"/>
+             <InfoOutlinedIcon className="nav-items"/> & Contact
+             <ContactMailOutlinedIcon className="nav-items"/>
+
             </Link>
-            <Link href="/contact"
+            {/* <Link href="/contact"
              className='text-white  hover:text-tahiti'>Contact
              <ContactMailOutlinedIcon className="nav-items"/>
-            </Link>
+            </Link> */}
           </div>
         </div>
     </nav>

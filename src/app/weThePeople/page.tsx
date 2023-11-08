@@ -1,28 +1,29 @@
-'use client'
 import type { ImageProps } from '../utils/types'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
+// import { useQuery } from '@tanstack/react-query'
+// import axios from 'axios'
 import Image from 'next/image'
 import Header from '../components/Header'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { getWethepeople } from '../utils/getCloudinaryResources'
 
 // import Link from 'next/link'
 
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 
-const Ballet = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['WeThePeople'],
-    queryFn: async () => {
-      const { data } = await axios.get('api/wethepeople/fetch')
-      return data.image.resources as ImageProps[];
-    }
-  })
+export default async function WeThePeople () {
+  // const { data, isLoading, isError } = useQuery({
+  //   queryKey: ['WeThePeople'],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get('api/wethepeople/fetch')
+  //     return data.image.resources as ImageProps[];
+  //   }
+  // })
 
-  if (isLoading) return <div>Data is Loading</div>
-  if (isError) return <div>Error</div>
+  // if (isLoading) return <div>Data is Loading</div>
+  // if (isError) return <div>Error</div>
+  const data = await getWethepeople();
 
   return (
     <main className='relative main-illustrations'>
@@ -41,7 +42,7 @@ const Ballet = () => {
         </Link> */}
       </header>
       <div className='z-0'>
-        {data.map((resource: ImageProps) => {
+        {data.resources.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -64,7 +65,4 @@ const Ballet = () => {
       </div>
     </main>
   )
-
 }
-
-export default Ballet
