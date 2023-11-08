@@ -25,7 +25,7 @@ import Header from '../components/Header'
 const getIllustrationsList = async () => {
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
-    cache:'no-store'
+    next: {revalidate: 10}
     });
 
   if (!res.ok) {
