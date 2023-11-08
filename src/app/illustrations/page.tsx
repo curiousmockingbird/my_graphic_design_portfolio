@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
+import { getIllustrations } from '../utils/getCloudinaryResources';
 
 // async function getIllustrations() {
 // // IllustrationsList = () => {
@@ -22,28 +23,28 @@ import Header from '../components/Header'
   
 // }
 
-const getIllustrationsList = async () => {
-  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
-    next: {revalidate: 10}
-    });
+// const getIllustrationsList = async () => {
+//   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+//   const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
+//     next: {revalidate: 10}
+//     });
 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  } 
-  return res.json()
-};
+//   if (!res.ok) {
+//     // This will activate the closest `error.js` Error Boundary
+//     throw new Error('Failed to fetch data')
+//   } 
+//   return res.json()
+// };
 
 
 export default async function IllustrationsList(){
-  const data = await getIllustrationsList();
+  const image = await getIllustrations();
 
   return ( 
     <main className='main-illustrations'>
       <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
-        {data.image.resources.map((resource: ImageProps) => {
+        {image.resources.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
