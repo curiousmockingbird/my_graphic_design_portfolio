@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { NextResponse } from "next/server";
 
-import getBase64Image from '@/app/utils/blurredPlaceholder'
-import type { ImageProps } from './../../../utils/types'
+// import getBase64Image from '@/app/utils/blurredPlaceholder'
+// import type { ImageProps } from './../../../utils/types'
 import {v2 as cloudinary} from 'cloudinary' 
 
 cloudinary.config({

@@ -22,23 +22,24 @@ import Header from '../components/Header'
   
 // }
 
-export default async function IllustrationsList(){
+const getIllustrationsList = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const res = await fetch(`my-graphic-design-portfolio-ur9ggvrat-curiousmockingbird.vercel.app/api/illustrations/fetch`, {
-    next: {
-      revalidate: 10, // 1 hour
-    },
+  const res = await fetch(`${baseUrl}/api/illustrations/fetch`, {
+    cache:'no-store'
     });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
   } 
-  const data =  await res.json()
+  return res.json()
+};
 
-  // const data = await getIllustrations();
 
-  return (
+export default async function IllustrationsList(){
+  const data = await getIllustrationsList();
+  
+  return ( 
     <main className='main-illustrations'>
       <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>

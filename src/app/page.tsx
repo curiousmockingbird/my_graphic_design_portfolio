@@ -21,54 +21,6 @@ const Home = () => {
                 </div>
               </Link>
             </div>
-            <div className='group custom-div'>
-              <Link
-                href="/ballet"
-                className='sections'>
-                <h2 className="nav-items">
-                  Ballet Nacional de Cuba{' '}
-                </h2>
-                <div className="flex items-center justify-center">
-                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
-                </div>
-              </Link>
-            </div>
-            <div className='group custom-div'>
-              <Link
-                href="/illustrations"
-                className='sections'>
-                <h2 className="nav-items">
-                  Motion Graphics & Animations{' '}
-                </h2>
-                <div className="flex items-center justify-center">
-                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
-                </div>
-              </Link>
-            </div>
-            <div className='group custom-div'>
-              <Link
-                href="/havana"
-                className='sections'>
-                <h2 className="nav-items">
-                  Life in Havana{' '}
-                </h2>
-                <div className="flex items-center justify-center">
-                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
-                </div>
-              </Link>
-            </div>
-            <div className='group custom-div'>
-              <Link
-                href="/weThePeople"
-                className='sections'>
-                <h2 className="nav-items">
-                  #WeThePeople{' '}
-                </h2>
-                <div className="flex items-center justify-center">
-                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
-                </div>
-              </Link>
-            </div>
           </div>
         </main>
       </div>
