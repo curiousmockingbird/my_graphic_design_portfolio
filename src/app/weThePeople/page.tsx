@@ -7,8 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default async function WeThePeople(){
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const res = await fetch(`my-graphic-design-portfolio-ur9ggvrat-curiousmockingbird.vercel.app
-  /api/wethepeople/fetch`);
+  const res = await fetch(`my-graphic-design-portfolio-ur9ggvrat-curiousmockingbird.vercel.app/api/wethepeople/fetch`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
