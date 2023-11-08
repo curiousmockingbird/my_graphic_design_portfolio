@@ -39,7 +39,7 @@ export default async function IllustrationsList(){
     <main className='main-illustrations'>
       <Header headerText='Illustrations & Posters' />
       <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
-        {data.reducedResults.map((resource: ImageProps) => {
+        {data.image.resources.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -52,8 +52,8 @@ export default async function IllustrationsList(){
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
-                blurDataURL={resource.blurDataUrl}
-                placeholder="blur"
+                // blurDataURL={resource.blurDataUrl}
+                // placeholder="blur"
               />
               {/* <p>{filename}</p> */}
             </div>
