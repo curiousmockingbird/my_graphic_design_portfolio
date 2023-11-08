@@ -4,7 +4,8 @@ import Header from '../components/Header'
 
 export default async function Havana(){
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const res = await fetch(`${baseUrl}/api/havana/fetch`);
+  const res = await fetch(`my-graphic-design-portfolio-ur9ggvrat-curiousmockingbird.vercel.app
+  /api/havana/fetch`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

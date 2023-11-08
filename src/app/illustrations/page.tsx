@@ -24,7 +24,8 @@ import Header from '../components/Header'
 
 export default async function IllustrationsList(){
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const res = await fetch(`${baseUrl}/api/illustrations/fetch`, {
+  const res = await fetch(`my-graphic-design-portfolio-ur9ggvrat-curiousmockingbird.vercel.app
+  /api/illustrations/fetch`, {
     next: {
       revalidate: 10, // 1 hour
     },
