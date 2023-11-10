@@ -1,14 +1,14 @@
-import {v2 as cloudinary} from 'cloudinary' 
-import { cache } from 'react'
+// import {v2 as cloudinary} from 'cloudinary' 
+// import { cache } from 'react'
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-  secure: true,
-})
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET,
+//   secure: true,
+// })
 
-export const revalidate = 10  // revalidate the data at most every hour
+// export const revalidate = 10  // revalidate the data at most every hour
 
 // // export const getCloudinaryResources = cache(async () => {
 // //   console.log("Function executed!");
@@ -16,11 +16,11 @@ export const revalidate = 10  // revalidate the data at most every hour
 // //   return cloudinarySearchPromise;
 // // })
 
-export const getIllustrations = cache(async () => {
-  // console.log("Function executed!");
-  const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
-  return image;
-})
+// export const getIllustrations = cache(async () => {
+//   // console.log("Function executed!");
+//   const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).execute();
+//   return image;
+// })
 
 // export const getBallet = cache(async () => {
 //   // console.log("Function executed!");

@@ -5,7 +5,7 @@ import type { ImageProps } from './../utils/types'
 import Image from 'next/image'
 import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
-import getBase64Image from '@/app/utils/blurredPlaceholder'
+// import getBase64Image from '@/app/utils/blurredPlaceholder'
 // import { getIllustrations } from '../utils/getCloudinaryResources';
 import {v2 as cloudinary} from 'cloudinary' 
 
