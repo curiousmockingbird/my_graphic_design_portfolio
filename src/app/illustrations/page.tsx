@@ -7,6 +7,7 @@ import Header from '../components/Header'
 // import Alert from '@mui/material/Alert';
 // import getBase64Image from '@/app/utils/blurredPlaceholder'
 // import { getIllustrations } from '../utils/getCloudinaryResources';
+// import cloudinary from ''
 import {v2 as cloudinary} from 'cloudinary' 
 
 cloudinary.config({
@@ -16,7 +17,7 @@ cloudinary.config({
   secure: true,
 })
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600
 
 async function getIllustrations() {
 
@@ -61,24 +62,22 @@ export default async function IllustrationsList(){
   return ( 
     <main className='main-illustrations'>
       <Header headerText='Illustrations & Posters' />
-      <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
+      <div className='columns-1 columns-2 gap-4 space-y-4 z-0'>
         {image.resources.map((resource: ImageProps) => {
-          // const publicIdParts = resource.public_id.split('/');
-          // const filename = publicIdParts[publicIdParts.length - 1];
+          const publicIdParts = resource.public_id.split('/');
+          const filename = publicIdParts[publicIdParts.length - 1];
           return (
             <div key={resource.secure_url}
               className='cursor-zoom-in bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
-              <Image
+\              <Image
                 className='grayscale custom-div-illustrations hover:grayscale-0'
                 width={resource.width}
                 height={resource.height}
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
-                // blurDataURL={resource.blurDataUrl}
-                // placeholder="blur"
               />
-              {/* <p>{filename}</p> */}
+              <p>{filename}</p>
             </div>
           )
         })}

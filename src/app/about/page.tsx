@@ -1,12 +1,12 @@
 'use client'
-
 // import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useForm } from 'react-hook-form';
 import Header from '../components/Header'
 import Image from 'next/image';
+import MyModal from '../components/Modal';
 
 const About = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,11 +24,14 @@ const About = () => {
     };
 
     return (
-    <div className='grid grid-rows-2'>
+    <div className='h-screen flex-1'>
+        <div className='main h-1/5'>
         <Header headerText='#WeThePeople' />
-        <main className='main grid grid-cols-2'>
-        <div className="grid grid-cols-2` bg-orange">
-                    <div className='bg-tahiti flex items-center justify-center'>
+        </div>
+        <div className='lg:h-4/5'>
+        <main className='h-full main grid lg:grid-cols-2'>
+        <div className=" grid-rows-2 ">
+                    <div className='flex items-center justify-center py-4'>
                     <Image 
                         src="/profile_pic.jpg" 
                         alt="Your Name" 
@@ -37,7 +40,7 @@ const About = () => {
                         height={400}
                     />
                     </div>
-                    <div className='px-6 flex items-center'>
+                    <div className='px-6 flex items-center pb-6 lg:pb-0'>
                         <div className=''>
                         {/* <p className="text-lg leading-relaxed mb-3">
                             Hello! I'm [Your Name], a passionate Graphic Designer with over [X years] of experience. I specialize in creating unique designs that capture the essence of a brand and resonate with its audience. From logos to comprehensive branding projects, I have worked with various clients across different industries.
@@ -48,7 +51,7 @@ const About = () => {
                         </div>
                     </div>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center pb-6 lg:pb-0">
             {/* <h2 className="text-2xl font-bold mb-4">Contact Us</h2> */}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-3/4">
                 <div className="flex flex-col">
@@ -66,9 +69,7 @@ const About = () => {
                     <textarea {...register('message', { required: true })} id="message" className="p-2 border rounded-md h-32 text-black"></textarea>
                     {errors.message && <span>This field is required</span>}
                 </div>
-                <div>
-                    <Button type="submit" variant="outlined">Contained</Button>
-                </div>
+                <MyModal/>
             </form>
 
             {/* Handle mutation states */}
@@ -77,6 +78,7 @@ const About = () => {
             {mutation.isLoading ? <span>Submitting...</span> : null}
         </div>
         </main>
+        </div>
         </div>
     );
 }

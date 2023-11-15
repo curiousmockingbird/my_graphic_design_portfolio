@@ -1,12 +1,13 @@
-// import {v2 as cloudinary} from 'cloudinary' 
+import {v2 as cloudinary} from 'cloudinary' 
 // import { cache } from 'react'
 
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-//   secure: true,
-// })
+export default cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
+})
+
 
 // export const revalidate = 10  // revalidate the data at most every hour
 

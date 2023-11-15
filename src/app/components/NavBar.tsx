@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="p-4 lg:p-6 custom-div">
           <div className="flex space-x-4 ">
             <Link href="/about"
-             className='text-white  hover:text-tahiti'>About
+             className='text-white  hover:text-tahiti'>About Me
              <InfoOutlinedIcon className="nav-items"/> & Contact
              <ContactMailOutlinedIcon className="nav-items"/>
 
