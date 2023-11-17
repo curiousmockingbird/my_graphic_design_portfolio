@@ -21,8 +21,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <TranStackProvider>
         {children}
-        <Analytics />
         </TranStackProvider>
+        <Analytics />
         </body>
     </html>
   )
