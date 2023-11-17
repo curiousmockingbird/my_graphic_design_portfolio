@@ -93,18 +93,6 @@ export default function Main() {
             </div>
             <div className="snap-center shrink-0 w-1/2 h-full flex justify-center items-center group custom-div">
               <Link
-                href="/wethepeople"
-                className='sections'>
-                <h2 className={`nav-items`}>
-                  #WeThePeople{' '}
-                </h2>
-                <div className="flex items-center justify-center">
-                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
-                </div>
-              </Link>
-            </div>
-            <div className="snap-center shrink-0 w-1/2 h-full flex justify-center items-center group custom-div">
-              <Link
                 href="/havana"
                 className='sections'>
                 <h2 className={`nav-items`}>
@@ -115,6 +103,19 @@ export default function Main() {
                 </div>
               </Link>
             </div>
+            <div className="snap-center shrink-0 w-1/2 h-full flex justify-center items-center group custom-div">
+              <Link
+                href="/wethepeople"
+                className='sections'>
+                <h2 className={`nav-items`}>
+                  #WeThePeople{' '}
+                </h2>
+                <div className="flex items-center justify-center">
+                  <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
+                </div>
+              </Link>
+            </div>
+            
           </ScrollSnapDots>
             </div>
           </div>
