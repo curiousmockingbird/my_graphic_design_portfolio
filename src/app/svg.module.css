@@ -1,0 +1,18 @@
+.svgContainer {
+    /* Define the container styles */
+    display: inline-block; /* or any other appropriate display value */
+    transition: background-color 0.3s; /* Transition for smooth color change */
+  }
+  
+  .svgContainer:hover {
+    /* Styles for the container when hovering */
+    background-color: #3ab7bf; /* Change the background color on hover */
+  }
+  
+  .svgImage {
+    /* Styles for the SVG image */
+    width: 100%; /* Set the width to fill the container */
+    height: auto; /* Maintain aspect ratio */
+    fill: currentColor; /* Allows you to change the SVG color using the container's text color */
+  }
+  

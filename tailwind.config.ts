@@ -10,6 +10,9 @@ const config: Config = {
     extend: {
       height: {
         '80vh': '80vh',
+      },
+      cursor: {
+        'cursor': 'pointer'
       }
     },
     colors: {
@@ -19,6 +22,7 @@ const config: Config = {
       'transparent': 'rgba(255, 255, 255, 0)',
       'white': '#f8fafc',
       'black': '#000000',
+      'red': '#ef4444'
     },
   },
   plugins: [],

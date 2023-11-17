@@ -26,6 +26,8 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+
+
 .custom-div {
   @apply flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700;
 }
@@ -47,7 +49,7 @@ body {
 }
 
 .back-arrow {
-  @apply text-orange border-orange rounded-3xl border-2 hover:rounded-sm hover:border-tahiti hover:text-tahiti lg:p-6 flex items-center justify-center transition-all duration-700;
+  @apply text-white border-orange rounded-3xl border-2 hover:rounded-sm hover:border-tahiti lg:p-6 flex items-center justify-center transition-all duration-700;
 }
 
 

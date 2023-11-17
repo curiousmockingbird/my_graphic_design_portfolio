@@ -41,7 +41,7 @@ export async function POST(request: Request) {
                 from: process.env.EMAIL_USER,
                 to: email,
                 subject: 'Email Confirmation',
-                text: 'Thank you for submitting the form. This is a confirmation that we received your submission.',
+                text: 'Thank you for your interest in my work. This is a confirmation that I received your message and that I will get in contact with you soon. Saludos!',
             });
 
             // console.log('Message sent', request);

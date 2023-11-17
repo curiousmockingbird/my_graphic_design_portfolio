@@ -3,7 +3,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined';
 export default function Navbar() {
   return (
-    <nav className="custom-div">
+    <nav className="flex items-center justify-center">
         <div className="p-4 lg:p-6 custom-div">
           <div className="flex space-x-4 ">
             <Link href="/about"

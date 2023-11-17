@@ -20,52 +20,24 @@ cloudinary.config({
 
 export const revalidate = 5;
 
-async function getIllustrations() {
+async function getBallet() {
 
-const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).sort_by('public_id', 'asc').execute();
-  
-// const blurImagePromises = Promise.all(image.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
-
-// // Wait for both the Cloudinary search and the blurred image generation to finish
-// const [results, imagesWithBlurDataUrls] = await Promise.all([image, blurImagePromises]);
-
-// //   Assemble reducedResults using the results from the Cloudinary search and the blurred images
-//   const reducedResults: ImageProps[] = results.resources.map((result:ImageProps, i:any) => ({
-//     id: i,
-//     height: result.height,
-//     width: result.width,
-//     secure_url: result.secure_url,
-//     public_id: result.public_id,
-//     format: result.format,
-//     blurDataUrl: imagesWithBlurDataUrls[i]
-//   }));
+const image = await cloudinary.search.expression(`folder=${process.env.BALLET_FOLDER}/*`).sort_by('public_id', 'asc').execute();
+ 
 return image;  
 }
-
-// const getIllustrationsList = async () => {
-//   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-//   const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
-//     next: {revalidate: 10}
-//     });
-
-//   if (!res.ok) {
-//     // This will activate the closest `error.js` Error Boundary
-//     throw new Error('Failed to fetch data')
-//   } 
-//   return res.json()
-// };
 
 
 export default async function IllustrationsList(){
   
-  const image = await getIllustrations();
+  const image = await getBallet();
 
   return ( 
     <main className='main-illustrations'>
-      <Header headerText='Personal Work' />
+      <Header headerText='Ballet Nacional de Cuba' />
       <div>
       <div className='flex justify-center pb-3'>
-        <h2>Illustrations & Posters</h2>
+        <h2>Branding & Advertisement</h2>
       </div>
       <div className='columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4 z-0'>
         {image.resources.map((resource: ImageProps) => {
@@ -73,7 +45,7 @@ export default async function IllustrationsList(){
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
             <div key={resource.secure_url}
-              className='cursor bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
+              className='cursor-zoom-in bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
               <Link href={resource.secure_url}>
               <Image
                 className='grayscale custom-div-illustrations hover:grayscale-0'
