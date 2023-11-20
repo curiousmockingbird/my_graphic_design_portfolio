@@ -7,13 +7,13 @@ import React, { useEffect, useState } from 'react';
 
 export default function Main() {
 
-    const [imgWidth, setImgWidth] = useState(150); // Default width
+    const [imgWidth, setImgWidth] = useState(80); // Default width
 
   useEffect(() => {
     // Add an event listener to track window resize
     const handleResize = () => {
       // Calculate the width based on screen size or any other condition
-      const newWidth = window.innerWidth < 768 ? 80 : 150; // Example condition
+      const newWidth = window.innerWidth < 1068 ? 80 : 150; // Example condition
       setImgWidth(newWidth);
     };
 
@@ -31,7 +31,7 @@ export default function Main() {
 
     return (
         <main className='flex-1 main'>
-          <div className='h-1/2 lg:h-3/4 grid grid-cols-1 lg:grid-cols-2'>
+          <div className='lg:h-3/4 grid grid-cols-1 lg:grid-cols-2'>
             {/* <Navbar /> */}
             <div className='group custom-div'>
               <Link
@@ -65,7 +65,7 @@ export default function Main() {
             </div>
           </div>
           {/* Snapping container starts here */}
-          <div className='h-1/2 lg:h-1/4'>
+          <div className='lg:h-1/4'>
             <div className='flex justify-center'>
             <hr className='`w-full text-tahiti'/>
             </div>
@@ -84,7 +84,7 @@ export default function Main() {
                 href="/ballet"
                 className='sections'>
                 <h2 className={`nav-items`}>
-                  Ballet Nacional de Cuba{' '}
+                  BNC{' '}
                 </h2>
                 <div className="flex items-center justify-center">
                   <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
