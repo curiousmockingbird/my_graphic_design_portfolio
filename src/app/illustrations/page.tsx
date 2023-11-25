@@ -23,38 +23,9 @@ export const revalidate = 150;
 async function getIllustrations() {
 
 const image = await cloudinary.search.expression(`folder=${process.env.ILLUSTRATIONS_FOLDER}/*`).sort_by('public_id', 'asc').execute();
-  
-// const blurImagePromises = await Promise.all(image.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
 
-// // Wait for both the Cloudinary search and the blurred image generation to finish
-// const [results, imagesWithBlurDataUrls] = await Promise.all([image, blurImagePromises]);
-
-// //   Assemble reducedResults using the results from the Cloudinary search and the blurred images
-//   const reducedResults: ImageProps[] = results.resources.map((result:ImageProps, i:any) => ({
-//     id: i,
-//     height: result.height,
-//     width: result.width,
-//     secure_url: result.secure_url,
-//     public_id: result.public_id,
-//     format: result.format,
-//     blurDataUrl: imagesWithBlurDataUrls[i]
-//   }));
 return image;  
 }
-
-// const getIllustrationsList = async () => {
-//   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-//   const res = await fetch('http://localhost:3000/api/illustrations/fetch', {
-//     next: {revalidate: 10}
-//     });
-
-//   if (!res.ok) {
-//     // This will activate the closest `error.js` Error Boundary
-//     throw new Error('Failed to fetch data')
-//   } 
-//   return res.json()
-// };
-
 
 export default async function IllustrationsList(){
   

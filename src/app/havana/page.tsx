@@ -27,7 +27,7 @@ export default async function Havana(){
       <Header headerText='Life in Havana' />
       <div>
       <div className='flex justify-center pb-3'>
-        <h2>Photography</h2>
+        <h2>Photography & other stuff</h2>
       </div>
       <div className='columns-1 lg:columns-2 gap-4 space-y-4 z-0'>
         {/* <MyModal></MyModal> */}
