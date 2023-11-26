@@ -2,7 +2,7 @@ import type { ImageProps } from './../utils/types'
 import Image from 'next/image'
 import Header from '../components/Header'
 import {v2 as cloudinary} from 'cloudinary' 
-import MyModal from '@/app/components/Modal'
+// import MyModal from '@/app/components/Modal'
 import Link from 'next/link'
 
 cloudinary.config({
@@ -27,7 +27,7 @@ export default async function Havana(){
       <Header headerText='Life in Havana' />
       <div>
       <div className='flex justify-center pb-3'>
-        <h2>Photography & other stuff</h2>
+        <h2>Photography</h2>
       </div>
       <div className='columns-1 lg:columns-2 gap-4 space-y-4 z-0'>
         {/* <MyModal></MyModal> */}

@@ -18,7 +18,7 @@ cloudinary.config({
   secure: true,
 })
 
-export const revalidate = 150;
+export const revalidate = 3600;
 
 async function getIllustrations() {
 
