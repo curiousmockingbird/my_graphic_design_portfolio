@@ -59,7 +59,7 @@ const About = () => {
                         </div>
                     </div> */}
                     <div className='flex flex-col justify-center items-center'>
-                    <div><h2>You can also find me on:</h2></div>
+                    <div className='pb-2 lg:pb-0'><h2>You can also find me on:</h2></div>
                     <div className='flex justify-center items-center'>
                     <a href="https://www.instagram.com/harold_designer/" target="_blank" rel="noopener noreferrer">
                                 <InstagramIcon sx={{ fontSize: 40 }} />

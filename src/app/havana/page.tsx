@@ -51,7 +51,7 @@ export default async function Havana(){
           return (
             <div key={resource.secure_url}
               className='bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
-              <Link href={`havana/imageId/${resource.public_id}`}>
+              <Link href={resource.secure_url}>
               <Image
                 className='cursor-zoom-in grayscale custom-div-illustrations hover:grayscale-0'
                 width={resource.width}
