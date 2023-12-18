@@ -58,6 +58,17 @@ const About = () => {
                             </a>
                         </div>
                     </div> */}
+                    <div className='flex flex-col justify-center items-center'>
+                    <div><h2>You can also find me on:</h2></div>
+                    <div className='flex justify-center items-center'>
+                    <a href="https://www.instagram.com/harold_designer/" target="_blank" rel="noopener noreferrer">
+                                <InstagramIcon sx={{ fontSize: 40 }} />
+                            </a>
+                            <a href="https://www.linkedin.com/in/haroldmesa93/" target="_blank" rel="noopener noreferrer">
+                                <LinkedInIcon sx={{ fontSize: 40 }} />
+                            </a>                    
+                    </div>
+                    </div>
                     <div className="flex flex-col justify-center items-center">
                         <h4 className="mb-4 text-center">Got Questions, Ideas, or Just Want to Say Hi?<br/> Drop Me an Email at <span className='font-bold text-2xl '>hola@haroldesigner.art</span><br/> I am All Ears (and Inbox)!</h4>
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-3/4">
@@ -162,17 +173,6 @@ const About = () => {
                         {/* {mutation.isError ? <span>Error</span> : null}
                         {mutation.isSuccess ? <span>Submitted successfully!</span> : null}
                         {mutation.isLoading ? <span>Submitting...</span> : null} */}
-                    </div>
-                    <div className='flex flex-col justify-center items-center'>
-                    <div><h2>You can also find me on:</h2></div>
-                    <div className='flex justify-center items-center'>
-                    <a href="https://www.instagram.com/harold_designer/" target="_blank" rel="noopener noreferrer">
-                                <InstagramIcon sx={{ fontSize: 40 }} />
-                            </a>
-                            <a href="https://www.linkedin.com/in/haroldmesa93/" target="_blank" rel="noopener noreferrer">
-                                <LinkedInIcon sx={{ fontSize: 40 }} />
-                            </a>                    
-                    </div>
                     </div>
                 </main>
             </div>
