@@ -10,6 +10,7 @@ import Header from '../components/Header'
 // import cloudinary from ''
 import {v2 as cloudinary} from 'cloudinary' 
 import Link from 'next/link'
+import getBase64Image from '@/app/utils/blurredPlaceholder'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -43,8 +44,39 @@ export default async function IllustrationsList(){
   
   const branding = await getBranding();
   const tshirts = await getTshirts();
-  const flyers = await getFlyers();
 
+  const blurImagePromises = await Promise.all(tshirts.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
+
+  // Wait for both the Cloudinary search and the blurred image generation to finish
+  const [results, imagesWithBlurDataUrls] = await Promise.all([tshirts, blurImagePromises]);
+
+  // Assemble reducedResults using the results from the Cloudinary search and the blurred images
+  const reducedResults: ImageProps[] = results.resources.map((result:ImageProps, i:any) => ({
+    id: i,
+    height: result.height,
+    width: result.width,
+    secure_url: result.secure_url,
+    public_id: result.public_id,
+    format: result.format,
+    blurDataUrl: imagesWithBlurDataUrls[i]
+  }));
+
+  const flyers = await getFlyers();
+  const blurImagePromisesFlyers = await Promise.all(flyers.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
+
+  // Wait for both the Cloudinary search and the blurred image generation to finish
+  const [resultsFlyers, imagesWithBlurDataUrlsFlyers] = await Promise.all([flyers, blurImagePromisesFlyers]);
+
+  // Assemble reducedResults using the results from the Cloudinary search and the blurred images
+  const reducedResultsFlyers: ImageProps[] = resultsFlyers.resources.map((result:ImageProps, i:any) => ({
+    id: i,
+    height: result.height,
+    width: result.width,
+    secure_url: result.secure_url,
+    public_id: result.public_id,
+    format: result.format,
+    blurDataUrl: imagesWithBlurDataUrlsFlyers[i]
+  }));
   return ( 
     <main className='main-illustrations'>
       <Header headerText='Voces de la Frontera' />
@@ -54,7 +86,7 @@ export default async function IllustrationsList(){
       </div>
       <div className='columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4 z-0'>
         
-        {tshirts.resources.map((resource: ImageProps) => {
+        {reducedResults.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -68,13 +100,15 @@ export default async function IllustrationsList(){
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
+                placeholder='blur'
+                blurDataURL={resource.blurDataUrl}
               />
               {/* <p>{filename}</p> */}
               </Link>
             </div>
           )
         })}
-        {flyers.resources.map((resource: ImageProps) => {
+        {reducedResultsFlyers.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');
           // const filename = publicIdParts[publicIdParts.length - 1];
           return (
@@ -88,6 +122,8 @@ export default async function IllustrationsList(){
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
+                placeholder='blur'
+                blurDataURL={resource.blurDataUrl}
               />
               {/* <p>{filename}</p> */}
               </Link>
@@ -108,6 +144,7 @@ export default async function IllustrationsList(){
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
                 alt="Description of my image"
+                
               />
               {/* <p>{filename}</p> */}
               </Link>

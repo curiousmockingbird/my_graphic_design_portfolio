@@ -33,10 +33,10 @@ export default async function IllustrationsList(){
   
   const blurImagePromises = await Promise.all(image.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
 
-// Wait for both the Cloudinary search and the blurred image generation to finish
-const [results, imagesWithBlurDataUrls] = await Promise.all([image, blurImagePromises]);
+  // Wait for both the Cloudinary search and the blurred image generation to finish
+  const [results, imagesWithBlurDataUrls] = await Promise.all([image, blurImagePromises]);
 
-//   Assemble reducedResults using the results from the Cloudinary search and the blurred images
+  // Assemble reducedResults using the results from the Cloudinary search and the blurred images
   const reducedResults: ImageProps[] = results.resources.map((result:ImageProps, i:any) => ({
     id: i,
     height: result.height,

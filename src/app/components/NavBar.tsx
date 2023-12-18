@@ -1,21 +1,16 @@
 import Link from 'next/link';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+// import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined';
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-center">
-        <div className="p-4 lg:p-6 custom-div">
+    <nav className="flex items-center justify-center p-4 lg:p-6 custom-div">
+        <div>
           <div className="flex space-x-4 ">
-            <Link href="/about"
-             className='text-white  hover:text-tahiti'>About Me
-             <InfoOutlinedIcon className="nav-items"/> & Contact
+            <Link href="/contact"
+             className='text-white  hover:text-tahiti'>
              <ContactMailOutlinedIcon className="nav-items"/>
-
+              contact
             </Link>
-            {/* <Link href="/contact"
-             className='text-white  hover:text-tahiti'>Contact
-             <ContactMailOutlinedIcon className="nav-items"/>
-            </Link> */}
           </div>
         </div>
     </nav>
