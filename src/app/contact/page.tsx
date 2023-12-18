@@ -59,7 +59,7 @@ const About = () => {
                         </div>
                     </div> */}
                     <div className="flex flex-col justify-center items-center">
-                        <h4 className="mb-4 text-center">Got Questions, Ideas, or Just Want to Say 'Hi'?<br/> Drop Me an Email at <span className='font-bold text-2xl '>hola@haroldesigner.art</span><br/> I am All Ears (and Inbox)!</h4>
+                        <h4 className="mb-4 text-center">Got Questions, Ideas, or Just Want to Say Hi?<br/> Drop Me an Email at <span className='font-bold text-2xl '>hola@haroldesigner.art</span><br/> I am All Ears (and Inbox)!</h4>
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-3/4">
                             <div>
                             </div>
