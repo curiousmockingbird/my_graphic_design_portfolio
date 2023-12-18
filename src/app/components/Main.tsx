@@ -4,7 +4,7 @@ import Link from 'next/link'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ScrollSnapDots from './ScrollSnapDots';
 import React, { useEffect, useState } from 'react';
-
+import Image from 'next/image';
 export default function Main() {
 
     const [imgWidth, setImgWidth] = useState(80); // Default width
@@ -41,7 +41,7 @@ export default function Main() {
                   <p className='cursor-pointer'>Voces de la Frontera{' '}</p>
                 </h2> */}
                 <div className='hover:text-tahiti'>
-                <img src="/voces_white_logo.svg" alt="Your SVG" width={imgWidth} />
+                <Image src="/voces_white_logo.svg" alt="Your SVG" width={imgWidth} height={200} />
                 </div>
                 <div className="flex items-center justify-center">
                   <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>
@@ -56,7 +56,7 @@ export default function Main() {
                   Personal Work{' '}
                 </h2> */}
                 <div className='hover:text-tahiti'>
-                <img src="/pencil.svg" alt="Your SVG" width={imgWidth} />
+                <Image src="/pencil.svg" alt="Your SVG" width={imgWidth} height={200}/>
                 </div>
                 <div className="flex items-center justify-center">
                   <span><ArrowForwardIcon className='group-hover:translate-x-2 transition-all duration-700' /></span>

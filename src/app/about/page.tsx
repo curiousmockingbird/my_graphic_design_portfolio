@@ -2,7 +2,7 @@
 // import Stack from '@mui/material/Stack';
 // import Button from '@mui/material/Button';
 import Header from '../components/Header'
-// import Image from 'next/image';
+import Image from 'next/image';
 import { useState, useEffect } from 'react'
 // import { useWindowWidth} from '@react-hook/window-size'
 import { SiAdobecreativecloud } from "react-icons/si";
@@ -58,11 +58,12 @@ const About = () => {
                     </div>
                     <div className="grid-rows-2">
                         <div className='flex items-center justify-center py-4'>
-                            <img
+                            <Image
                                 src="/profile_pic.jpg"
                                 alt="Your Name"
                                 className="rounded-full"
                                 width={imgWidth}
+                                height={200}
                             />
                         </div>
                         <div className='px-6 flex items-center pb-6 lg:pb-0'>
