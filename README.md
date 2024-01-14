@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Graphic Design Portfolio
 
-## Getting Started
+**Deployment:** [haroldesigner.art](https://www.haroldesigner.art/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Welcome to my graphic design portfolio**, a dynamic showcase built with Next.js. This portfolio highlights my work in various graphic design areas, leveraging the latest tools and libraries to provide an engaging user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Some of the technologies used:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Cloudinary:** Integrated for efficient image management and optimization. Cloudinary's powerful API allows for dynamic image processing and delivery, ensuring fast load times and high-quality visuals.
+- **HeadlessUI:** Utilized for building fully accessible UI components. HeadlessUI provides the unstyled, fully accessible UI components, making the interface intuitive and user-friendly.
+- **TanStack (React Query):** Employed for efficient server-state management in React applications. This tool helps in fetching, caching, and updating data in your React and React Native applications, making the site more responsive and data-efficient.
+- **Nodemailer:** Integrated for easy email sending through Node.js. This module is used in the contact form, allowing visitors to reach out directly from the website.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Dynamic Image Gallery:** Powered by Cloudinary, the gallery showcases my graphic design work with high performance and flexibility.
+- **Responsive Design:** Ensures a seamless experience across various devices and screen sizes.
+- **Contact Form:** Built with Nodemailer, allowing easy and direct communication with potential clients or collaborators.
