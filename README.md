@@ -7,13 +7,13 @@
 
 ## Some of the technologies used:
 
-- **Cloudinary:** Integrated for efficient image management and optimization. Cloudinary's powerful API allows for dynamic image processing and delivery, ensuring fast load times and high-quality visuals.
-- **HeadlessUI:** Utilized for building fully accessible UI components. HeadlessUI provides the unstyled, fully accessible UI components, making the interface intuitive and user-friendly.
-- **TanStack (React Query):** Employed for efficient server-state management in React applications. This tool helps in fetching, caching, and updating data in your React and React Native applications, making the site more responsive and data-efficient.
-- **Nodemailer:** Integrated for easy email sending through Node.js. This module is used in the contact form, allowing visitors to reach out directly from the website.
+- **Cloudinary:** Integrated for efficient image management and optimization.
+- **HeadlessUI:** Utilized for building fully accessible UI components.
+- **TanStack (React Query):** Employed for efficient server-state management in React applications. 
+- **Nodemailer:** Integrated for easy email sending through Node.js. .
 
 ## Features
 
 - **Dynamic Image Gallery:** Powered by Cloudinary, the gallery showcases my graphic design work with high performance and flexibility.
-- **Responsive Design:** Ensures a seamless experience across various devices and screen sizes.
 - **Contact Form:** Built with Nodemailer, allowing easy and direct communication with potential clients or collaborators.
+- **Responsive Design:** Ensures a seamless experience across various devices and screen sizes.
