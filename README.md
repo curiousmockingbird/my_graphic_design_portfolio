@@ -2,6 +2,7 @@
 
 **Deployment:** [haroldesigner.art](https://www.haroldesigner.art/)
 
+[![LinkedIn Logo](public/view.png)](https://www.haroldesigner.art/)
 
 **Welcome to my graphic design portfolio**, a dynamic showcase built with Next.js. This portfolio highlights my work in various graphic design areas, leveraging the latest tools and libraries to provide an engaging user experience.
 

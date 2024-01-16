@@ -56,8 +56,8 @@ export default async function IllustrationsList(){
       </div>
       <div className='columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4 z-0'>
         {reducedResults.map((resource: ImageProps) => {
-          // const publicIdParts = resource.public_id.split('/');
-          // const filename = publicIdParts[publicIdParts.length - 1];
+          const publicIdParts = resource.public_id.split('/');
+          const filename = publicIdParts[publicIdParts.length - 1];
           return (
             <div key={resource.secure_url}
               className='cursor bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
@@ -68,7 +68,7 @@ export default async function IllustrationsList(){
                 height={resource.height}
                 src={resource.secure_url}
                 sizes='(max-width: 768px) 35vw, (max-width: 1024px) 50vw, 100vw'
-                alt="Description of my image"
+                alt={filename}
                 placeholder='blur'
                 blurDataURL={resource.blurDataUrl}
               />
