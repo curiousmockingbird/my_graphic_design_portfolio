@@ -84,7 +84,7 @@ export default async function IllustrationsList(){
       <div className='flex justify-center pb-3'>
         <h2>Branding & Campaigns</h2>
       </div>
-      <div className='columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4 z-0'>
+      <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
         
         {reducedResults.map((resource: ImageProps) => {
           // const publicIdParts = resource.public_id.split('/');

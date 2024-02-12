@@ -1,6 +1,3 @@
-// 'use client'
-// import { useQuery } from '@tanstack/react-query'
-// import axios from 'axios'
 import Header from '../components/Header'
 import type { ImageProps } from './../utils/types'
 import getBase64Image from '@/app/utils/blurredPlaceholder'
