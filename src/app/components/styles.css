@@ -20,3 +20,18 @@
     opacity: 0.8; /* Slight fade effect on hover */
   }
   
+  .modal {
+    width: auto; /* Default width */
+  }
+  
+  @media (max-width: 1024px) {
+    .modal {
+      width: 600px; /* Tablet and below */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modal {
+      width: 350px; /* Phone and below */
+    }
+  }

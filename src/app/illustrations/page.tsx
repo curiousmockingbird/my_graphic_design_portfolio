@@ -2,7 +2,7 @@ import Header from '../components/Header'
 import type { ImageProps } from './../utils/types'
 import getBase64Image from '@/app/utils/blurredPlaceholder'
 import {v2 as cloudinary} from 'cloudinary' 
-import ImageGallery from './components/ImageGallery'
+import ImageGallery from './../components/ImageGallery'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

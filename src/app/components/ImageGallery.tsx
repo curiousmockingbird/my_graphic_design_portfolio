@@ -3,37 +3,22 @@ import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
-import type { ImageProps } from './../../utils/types'
+import type { ImageProps } from './../utils/types'
 // import { number, string } from 'zod';
 import Button from '@mui/material/Button';
 import './styles.css'
+
 const modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 500,
+    width: 'auto', // Set to auto or a base width
+    maxWidth: '500px', // Example of using maxWidth for responsive design
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1,
-};
-
-// Define the props for the Thumbnail component
-interface ThumbnailProps {
-    image: ImageProps;
-    onClick: () => void;
-}
-
-
-// Thumbnail component
-const Thumbnail: React.FC<ThumbnailProps> = ({ image, onClick }) => {
-    return (
-        <button onClick={onClick} className="thumbnail">
-            <Image src={image.secure_url} alt={image.secure_url} width={50} height={50} layout="fixed" />
-        </button>
-    );
-};
-
+  };
 
 function ImageGallery({ images }: { images: any }) {
 
@@ -63,17 +48,17 @@ function ImageGallery({ images }: { images: any }) {
         setSelectedImage(images[prevIndex]);
     };
 
-    const handleThumbnailClick = (image: any, index: any) => {
-        setSelectedImage(image);
-        setCurrentIndex(index);
-        if (!open) setOpen(true);
-    };
+    // const handleThumbnailClick = (image: any, index: any) => {
+    //     setSelectedImage(image);
+    //     setCurrentIndex(index);
+    //     if (!open) setOpen(true);
+    // };
 
     return (
         <>
-            <div className='flex justify-center pb-3'>
-                <h2>Illustrations & Posters</h2>
-            </div>
+            {/* <div className='flex justify-center pb-3'>
+                <h2>{headerText}</h2>
+            </div> */}
             <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
                 {images.map((resource: ImageProps, i: number) => {
                     const publicIdParts = resource.public_id.split('/');
@@ -108,7 +93,7 @@ function ImageGallery({ images }: { images: any }) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >   
-                    <Box sx={modalStyle}>
+                    <Box sx={modalStyle} className="modal">
                     <Box >
                         <div className='grid grid-cols-10'>
                             <div className='col-end-11 col-span-2 text-right'>
@@ -125,25 +110,29 @@ function ImageGallery({ images }: { images: any }) {
                                 blurDataURL={selectedImage.blurDataUrl}
                             />
                         )}
-                        <div className='grid grid-cols-8 gap-4 mt-2'>
+                        <div className='grid grid-cols-12 gap-4 mt-2'>
                             <div className='col-span-4'>
-                                <Button onClick={handlePrevious}>Previous</Button>
+                                <Button variant="outlined" size="small" onClick={handlePrevious}>Previous</Button>
+                            </div>
+                            <div className='col-span-4 text-center'>
+                            <Button disabled >{`${currentIndex + 1} of ${images.length}`} </Button>
                             </div>
                             <div className='col-span-4 text-right'>
-                                <Button onClick={handleNext}>Next</Button>
+                                <Button variant="outlined" size="small" onClick={handleNext}>Next</Button>
                             </div>
                         </div>
+                    
                     </Box>
-                    <Box>
+                    {/* <Box>
                         <div className="thumbnail-container">
                             {images.map((image: any, index: any) => (
                                 <Thumbnail key={index} image={image} onClick={() => handleThumbnailClick(image, index)} />
                             ))}
                         </div>
-                    </Box>
+                    </Box> */}
                     </Box>
                 </Modal>
-
+                
             </div>
         </>
     );
