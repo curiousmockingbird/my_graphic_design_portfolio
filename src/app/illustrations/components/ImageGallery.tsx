@@ -6,17 +6,34 @@ import Image from 'next/image';
 import type { ImageProps } from './../../utils/types'
 // import { number, string } from 'zod';
 import Button from '@mui/material/Button';
-
+import './styles.css'
 const modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    width: 500,
     bgcolor: 'background.paper',
     boxShadow: 24,
-    p: 4,
+    p: 1,
 };
+
+// Define the props for the Thumbnail component
+interface ThumbnailProps {
+    image: ImageProps;
+    onClick: () => void;
+}
+
+
+// Thumbnail component
+const Thumbnail: React.FC<ThumbnailProps> = ({ image, onClick }) => {
+    return (
+        <button onClick={onClick} className="thumbnail">
+            <Image src={image.secure_url} alt={image.secure_url} width={50} height={50} layout="fixed" />
+        </button>
+    );
+};
+
 
 function ImageGallery({ images }: { images: any }) {
 
@@ -44,6 +61,12 @@ function ImageGallery({ images }: { images: any }) {
         const prevIndex = (currentIndex - 1 + images.length) % images.length; // Wrap around to the last image
         setCurrentIndex(prevIndex);
         setSelectedImage(images[prevIndex]);
+    };
+
+    const handleThumbnailClick = (image: any, index: any) => {
+        setSelectedImage(image);
+        setCurrentIndex(index);
+        if (!open) setOpen(true);
     };
 
     return (
@@ -78,16 +101,18 @@ function ImageGallery({ images }: { images: any }) {
                         </div>
                     )
                 })}
+
                 <Modal
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
-                >
+                >   
                     <Box sx={modalStyle}>
-                    <div className='grid grid-cols-10'>
+                    <Box >
+                        <div className='grid grid-cols-10'>
                             <div className='col-end-11 col-span-2 text-right'>
-                        <Button onClick={handleClose}>Close</Button>
+                                <Button onClick={handleClose}>Close</Button>
                             </div>
                         </div>
                         {selectedImage && (
@@ -102,12 +127,20 @@ function ImageGallery({ images }: { images: any }) {
                         )}
                         <div className='grid grid-cols-8 gap-4 mt-2'>
                             <div className='col-span-4'>
-                        <Button onClick={handlePrevious}>Previous</Button>
+                                <Button onClick={handlePrevious}>Previous</Button>
                             </div>
                             <div className='col-span-4 text-right'>
-                        <Button onClick={handleNext}>Next</Button>
+                                <Button onClick={handleNext}>Next</Button>
                             </div>
                         </div>
+                    </Box>
+                    <Box>
+                        <div className="thumbnail-container">
+                            {images.map((image: any, index: any) => (
+                                <Thumbnail key={index} image={image} onClick={() => handleThumbnailClick(image, index)} />
+                            ))}
+                        </div>
+                    </Box>
                     </Box>
                 </Modal>
 

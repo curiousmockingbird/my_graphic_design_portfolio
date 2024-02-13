@@ -1,0 +1,22 @@
+.thumbnail-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    padding: 10px 0;
+  }
+  
+  .thumbnail {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .thumbnail:focus {
+    outline: 2px solid blue; /* Highlight focus */
+  }
+  
+  .thumbnail:hover {
+    opacity: 0.8; /* Slight fade effect on hover */
+  }
+  
