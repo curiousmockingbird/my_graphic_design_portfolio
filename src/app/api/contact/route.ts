@@ -44,9 +44,6 @@ export async function POST(request: Request) {
                 text: 'Thank you for your interest in my work. This is a confirmation that I received your message and that I will get in contact with you soon. Saludos!',
             });
 
-            // console.log('Message sent', request);
-
-            // request.status(200).json({ message: "Email sent successfully" });
     
         return NextResponse.json({status:200});
     } catch (error: any) {
