@@ -31,7 +31,7 @@ export default function Main() {
 
     return (
         <main className='flex-1 main'>
-          <div className='lg:h-3/4 grid grid-cols-1 lg:grid-cols-2'>
+          <div className='h-3/4 grid grid-cols-1 lg:grid-cols-2'>
             {/* <Navbar /> */}
             <div className='group custom-div'>
               <Link
