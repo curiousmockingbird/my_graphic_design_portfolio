@@ -26,12 +26,12 @@
   
   @media (max-width: 1024px) {
     .modal {
-      width: 600px; /* Tablet and below */
+      width: 700px; /* Tablet and below */
     }
   }
   
   @media (max-width: 768px) {
     .modal {
-      width: 350px; /* Phone and below */
+      width: 550px; /* Phone and below */
     }
   }
