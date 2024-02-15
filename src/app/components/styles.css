@@ -32,6 +32,6 @@
   
   @media (max-width: 768px) {
     .modal {
-      width: 350px; /* Phone and below */
+      width: 280px; /* Phone and below */
     }
   }
