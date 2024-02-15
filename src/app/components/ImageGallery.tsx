@@ -12,9 +12,8 @@ const modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
+    width: 500,
     transform: 'translate(-50%, -50%)',
-    width: 'auto', // Set to auto or a base width
-    maxWidth: '500px', // Example of using maxWidth for responsive design
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1,
