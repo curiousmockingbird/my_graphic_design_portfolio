@@ -30,8 +30,8 @@
     }
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 375px) {
     .modal {
-      width: 280px; /* Phone and below */
+      width: 350px; /* Phone and below */
     }
   }
