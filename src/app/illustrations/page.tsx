@@ -40,7 +40,7 @@ export default async function IllustrationsList(){
   
   return ( 
     <main className='main-illustrations'>
-      <Header headerText='Personal Work' />
+      <Header headerText='Personal Work (test)' />
       <ImageGallery images={image}/>
     </main>
   )
