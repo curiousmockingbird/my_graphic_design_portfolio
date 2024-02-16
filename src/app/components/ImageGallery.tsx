@@ -6,20 +6,36 @@ import Image from 'next/image';
 import type { ImageProps } from './../utils/types'
 // import { number, string } from 'zod';
 import Button from '@mui/material/Button';
-import './styles.css'
+// import './styles.css'
+import { useEffect } from 'react';
 
-const modalStyle = {
+let modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    width: 550,
+    width: 350,
     transform: 'translate(-50%, -50%)',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1,
   };
 
+  
+  const adjustModalWidth = () => {     
+      const screenWidth = window.innerWidth;
+    if (screenWidth <= 375) { // Example breakpoint for small devices
+      modalStyle.width = 350; // Adjust width for small devices
+    } else {
+      modalStyle.width = 580; // Default width for larger devices
+    }
+  };
+  
+
 function ImageGallery({ images }: { images: any }) {
+    useEffect(() => {
+        // Code here runs only in the browser, safely use window
+        adjustModalWidth();
+      }, []); // Empty dependency array means this runs once on mount
 
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(Object);
@@ -92,7 +108,7 @@ function ImageGallery({ images }: { images: any }) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >   
-                    <Box sx={modalStyle} className="modal">
+                    <Box sx={modalStyle}>
                     <Box >
                         <div className='grid grid-cols-10'>
                             <div className='col-end-11 col-span-2 text-right'>

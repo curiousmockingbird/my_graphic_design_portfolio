@@ -21,7 +21,7 @@
   }
   
   .modal {
-    width: 'auto'; /* Default width */
+    width: 100; /* Default width */
   }
   
   @media (max-width: 1024px) {
@@ -32,6 +32,6 @@
   
   @media (max-width: 375px) {
     .modal {
-      width: 350px; /* Phone and below */
+      width: 360px; /* Phone and below */
     }
   }
