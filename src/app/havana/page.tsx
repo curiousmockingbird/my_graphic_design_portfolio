@@ -41,7 +41,7 @@ export default async function Havana(){
   return (
     <main className='main-illustrations'>
       <Header headerText='Life in Havana' />
-      <ImageGallery images={image}/>
+      <ImageGallery images={image} headerText='Branding'/>
     </main>
   )
 }
