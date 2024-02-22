@@ -9,7 +9,7 @@ body {
 }
 
 .custom-div {
-  @apply flex items-center justify-center border-transparent rounded-sm border-2 hover:rounded-3xl hover:border-tahiti transition-all duration-700;
+  @apply flex items-center justify-center border-transparent border-t-2  hover:border-tahiti transition-all duration-700;
 }
 
 .custom-div-illustrations {
@@ -18,6 +18,10 @@ body {
 
 .nav-items {
   @apply mx-2;
+}
+
+.nav-menu {
+  @apply border-b-2 transition-all duration-500 border-transparent hover:border-tahiti;
 }
 
 .section-header {

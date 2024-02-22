@@ -43,7 +43,7 @@ export default async function VocesList(){
   return ( 
     <main className='main-illustrations'>
       <Header headerText='@Voces de la Frontera' />
-      <ImageGallery images={image}/>
+      <ImageGallery images={image} headerText='Branding'/>
     </main>
   )
 }

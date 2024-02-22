@@ -31,7 +31,10 @@ let modalStyle = {
   };
   
 
-function ImageGallery({ images }: { images: any }) {
+function ImageGallery({
+    headerText,
+    images,
+}: React.PropsWithChildren<{ headerText: string, images: any }>) {
     useEffect(() => {
         // Code here runs only in the browser, safely use window
         adjustModalWidth();
@@ -71,9 +74,9 @@ function ImageGallery({ images }: { images: any }) {
 
     return (
         <>
-            {/* <div className='flex justify-center pb-3'>
+            <div className='flex justify-center pb-3'>
                 <h2>{headerText}</h2>
-            </div> */}
+            </div>
             <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
                 {images.map((resource: ImageProps, i: number) => {
                     const publicIdParts = resource.public_id.split('/');
