@@ -25,21 +25,24 @@ export default function Navbar() {
     <>
       {isMobile ? (
         <AppBar position="static">
-          <Toolbar>
-            <div className='flex justify-start items-center'>
-              <ContactMailOutlinedIcon />
+          <Toolbar className='flex items-center justify-center bg-black'>
+            <div className='grid grid-cols-2 w-full'>
+              <div className='flex items-center justify-center'>
               <p>harolDesigner.art</p>
-            </div>
+              </div>
+            <div className='flex items-center justify-end'>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ ml: 2 }}
+              sx={{ }}
               onClick={handleMenu}
-            >
+              >
               <MenuIcon />
             </IconButton>
+            </div>
+              </div>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
