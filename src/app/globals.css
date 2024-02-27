@@ -9,7 +9,7 @@ body {
 }
 
 .custom-div {
-  @apply flex items-center justify-center border-transparent border-t-2  hover:border-tahiti transition-all duration-700;
+  @apply flex items-center justify-center;
 }
 
 .custom-div-illustrations {
@@ -29,7 +29,7 @@ body {
 }
 
 .sections {
-  @apply no-underline p-4 text-white px-2 hover:text-tahiti lg:p-6 flex items-center justify-center hover:underline hover:underline-offset-8 transition-all duration-700;
+  @apply flex items-center justify-center hover:scale-110 transition-all duration-700;
 }
 
 .back-arrow {

@@ -41,7 +41,7 @@ export default async function IBalletList(){
   return ( 
     <main className='main-illustrations'>
       <Header headerText='Ballet Nacional de Cuba' />
-      <ImageGallery images={image} headerText='Branding'/>
+      <ImageGallery images={image} headerText='Branding' columnsLg='lg:columns-1'/>
     </main>
   )
 }

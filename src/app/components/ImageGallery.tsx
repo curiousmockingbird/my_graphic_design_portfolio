@@ -26,7 +26,7 @@ let modalStyle = {
     if (screenWidth <= 375) { // Example breakpoint for small devices
       modalStyle.width = 350; // Adjust width for small devices
     } else {
-      modalStyle.width = 580; // Default width for larger devices
+      modalStyle.width = 510; // Default width for larger devices
     }
   };
   
@@ -34,7 +34,9 @@ let modalStyle = {
 function ImageGallery({
     headerText,
     images,
-}: React.PropsWithChildren<{ headerText: string, images: any }>) {
+    columnsLg,
+    //TODO: add columsLg in page components/routes
+}: React.PropsWithChildren<{ headerText: string, images: any, columnsLg:string }>) {
     useEffect(() => {
         // Code here runs only in the browser, safely use window
         adjustModalWidth();
@@ -77,14 +79,13 @@ function ImageGallery({
             <div className='flex justify-center pb-3'>
                 <h2>{headerText}</h2>
             </div>
-            <div className='columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4 z-0'>
+            <div className={`columns-1 md:columns-2 ${columnsLg} gap-4 space-y-4 z-0`}>
                 {images.map((resource: ImageProps, i: number) => {
                     const publicIdParts = resource.public_id.split('/');
                     const filename = publicIdParts[publicIdParts.length - 1];
                     return (
                         <div key={resource.secure_url}
-                            className='cursor bg-orange rounded-3xl hover:rounded-none transition-all duration-700'>
-                            {/* <Link href={resource.secure_url}> */}
+                            className='cursor bg-orange rounded-3xl hover:rounded-none transition-all duration-700 flex justify-center'>
                             <button key={resource.secure_url}
                                 onClick={() => handleOpen(resource, i)}
                             >
@@ -99,7 +100,6 @@ function ImageGallery({
                                     blurDataURL={resource.blurDataUrl}
                                 />
                                 {/* <p>{filename}</p> */}
-                                {/* </Link> */}
                             </button>
                         </div>
                     )
@@ -141,13 +141,6 @@ function ImageGallery({
                         </div>
                     
                     </Box>
-                    {/* <Box>
-                        <div className="thumbnail-container">
-                            {images.map((image: any, index: any) => (
-                                <Thumbnail key={index} image={image} onClick={() => handleThumbnailClick(image, index)} />
-                            ))}
-                        </div>
-                    </Box> */}
                     </Box>
                 </Modal>
                 

@@ -34,19 +34,19 @@ export default function Project({
     }, []);
 
     return (
-        <div className='group custom-div'>
-                <div className="flex items-center justify-center">
-                    <span><IconButton onClick={previous}><ArrowBackIcon className='bg-orange hover:-translate-x-2 transition-all duration-700' /></IconButton> </span>
+        <div className='flex items-center justify-evenly'>
+                <div className='flex items-center justify-center '>
+                    <span><IconButton onClick={previous}><ArrowBackIcon className='bg-orange hover:-translate-x-2 scale-150 transition-all duration-700' /></IconButton> </span>
                 </div>
             <Link
                 href={route}
                 className='sections'>
-                <div className='hover:text-tahiti'>
+                <div>
                     <Image src={image} alt="Your SVG" width={imgWidth} height={200} />
                 </div>
             </Link>
-                <div className="flex items-center justify-center">
-                    <span><IconButton onClick={next}><ArrowForwardIcon className='bg-orange hover:translate-x-2 transition-all duration-700' /></IconButton></span>
+                <div className='flex items-center justify-center'>
+                    <span><IconButton onClick={next}><ArrowForwardIcon className='bg-orange hover:translate-x-2 scale-150 transition-all duration-700' /></IconButton></span>
                 </div>
         </div>
     )
