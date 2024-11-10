@@ -31,6 +31,7 @@
     "cloudinary": "^1.40.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "lilconfig": "^3.1.2",
     "next": "^14.0.1",
     "nodemailer": "^6.9.7",
     "plaiceholder": "^3.0.0",
