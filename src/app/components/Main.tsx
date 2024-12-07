@@ -1,10 +1,15 @@
-'use client'
+'use client';
 import * as React from 'react';
 import Box from '@mui/system/Box';
 import Navbar from './NavBar';
 import Project from './Project';
+import smoothscroll from 'smoothscroll-polyfill';
 
 export default function Main() {
+  React.useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
+
   const [currentPage, setCurrentPage] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -14,10 +19,10 @@ export default function Main() {
     setCurrentPage(pageIndex);
   };
 
-  const scrollToPage = (pageIndex:any) => {
+  const scrollToPage = (pageIndex: number) => {
     const newPageIndex = Math.max(0, Math.min(pageIndex, pages.length - 1));
     if (containerRef.current) {
-      const scrollX = newPageIndex * window.innerWidth;
+      const scrollX = newPageIndex * (containerRef.current.offsetWidth || window.innerWidth);
       containerRef.current.scrollTo({ left: scrollX, behavior: 'smooth' });
     }
     setCurrentPage(newPageIndex);
@@ -32,11 +37,10 @@ export default function Main() {
   };
 
   const pages = [
-    <Project key="voces" route='/voces' image='/voces_white_logo.svg' next={handleNext} previous={handlePrevious}/>,
-    <Project key="illustrations" route='/illustrations' image='/pencil.svg' next={handleNext} previous={handlePrevious}/>,
-    <Project key="ballet" route='/ballet' image='/bnc.svg' next={handleNext} previous={handlePrevious}/>,
-    <Project key="havana" route='/havana' image='/havana.svg' next={handleNext} previous={handlePrevious}/>,
-    // Add more components as needed, each with a unique key
+    <Project key="voces" route="/voces" image="/voces_white_logo.svg" next={handleNext} previous={handlePrevious} />,
+    <Project key="illustrations" route="/illustrations" image="/pencil.svg" next={handleNext} previous={handlePrevious} />,
+    <Project key="ballet" route="/ballet" image="/bnc.svg" next={handleNext} previous={handlePrevious} />,
+    <Project key="havana" route="/havana" image="/havana.svg" next={handleNext} previous={handlePrevious} />,
   ];
 
   return (
