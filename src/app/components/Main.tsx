@@ -38,8 +38,8 @@ export default function Main() {
 
   const pages = [
     <Project key="voces" route="/voces" image="/voces_white_logo.svg" next={handleNext} previous={handlePrevious} />,
-    <Project key="illustrations" route="/illustrations" image="/pencil.svg" next={handleNext} previous={handlePrevious} />,
     <Project key="ballet" route="/ballet" image="/bnc.svg" next={handleNext} previous={handlePrevious} />,
+    <Project key="illustrations" route="/illustrations" image="/pencil.svg" next={handleNext} previous={handlePrevious} />,
     <Project key="havana" route="/havana" image="/havana.svg" next={handleNext} previous={handlePrevious} />,
   ];
 
