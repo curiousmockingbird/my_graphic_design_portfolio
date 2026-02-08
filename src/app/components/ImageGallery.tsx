@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
@@ -7,7 +7,7 @@ import type { ImageProps } from './../utils/types'
 // import { number, string } from 'zod';
 import Button from '@mui/material/Button';
 // import './styles.css'
-import { useEffect } from 'react';
+// useEffect imported above
 
 let modalStyle = {
     position: 'absolute',
@@ -45,6 +45,8 @@ function ImageGallery({
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(Object);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const gridRef = useRef<HTMLDivElement>(null);
+    const itemRefs = useRef<HTMLDivElement[]>([]);
 
     const handleOpen = (resource: any, i: any) => {
         setSelectedImage(resource);
@@ -74,17 +76,55 @@ function ImageGallery({
     //     if (!open) setOpen(true);
     // };
 
+    useEffect(() => {
+        const grid = gridRef.current;
+        if (!grid) return;
+
+        const rowHeight = 8; // px
+        const rowGap = 16; // px (matches gap-4)
+
+        const resizeItem = (item: HTMLDivElement) => {
+            const img = item.querySelector('img');
+            if (!img) return;
+            const contentHeight = img.getBoundingClientRect().height;
+            const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = `span ${rowSpan}`;
+        };
+
+        const resizeAll = () => {
+            itemRefs.current.forEach((item) => item && resizeItem(item));
+        };
+
+        const ro = new ResizeObserver(resizeAll);
+        ro.observe(grid);
+
+        // Initial sizing once images have a layout box
+        requestAnimationFrame(resizeAll);
+
+        return () => {
+            ro.disconnect();
+        };
+    }, [images]);
+
     return (
         <>
             <div className='flex justify-center pb-3'>
                 <h2>{headerText}</h2>
             </div>
-            <div className={`grid grid-cols-1 md:grid-cols-2 ${columnsLg} gap-4 z-0`}>
+            <div
+                ref={gridRef}
+                className={`grid grid-cols-1 md:grid-cols-2 ${columnsLg} gap-4 z-0`}
+                style={{ gridAutoRows: '8px' }}
+            >
                 {images.map((resource: ImageProps, i: number) => {
                     const publicIdParts = resource.public_id.split('/');
                     const filename = publicIdParts[publicIdParts.length - 1];
                     return (
-                        <div key={resource.secure_url}
+                        <div
+                            key={resource.secure_url}
+                            ref={(el) => {
+                                if (el) itemRefs.current[i] = el;
+                            }}
                             className='cursor bg-orange rounded-3xl hover:rounded-none transition-all duration-700 flex justify-center'>
                             <button key={resource.secure_url}
                                 onClick={() => handleOpen(resource, i)}
