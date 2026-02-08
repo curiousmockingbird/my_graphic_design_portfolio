@@ -35,8 +35,13 @@ export default function Project({
 
     return (
         <div className='flex items-center justify-evenly'>
-                <div className='flex items-center justify-center '>
-                    <span><IconButton onClick={previous}><ArrowBackIcon className='bg-orange hover:-translate-x-2 scale-150 transition-all duration-700' /></IconButton> </span>
+                <div className='flex items-center justify-center'>
+                    <IconButton onClick={previous} className='group transform-gpu'>
+                        <ArrowBackIcon
+                            className='pointer-events-none inline-block scale-150 transition-transform duration-300 ease-out will-change-transform group-hover:-translate-x-2'
+                            sx={{ color: '#fb923c' }}
+                        />
+                    </IconButton>
                 </div>
             <Link
                 href={route}
@@ -46,7 +51,12 @@ export default function Project({
                 </div>
             </Link>
                 <div className='flex items-center justify-center'>
-                    <span><IconButton onClick={next}><ArrowForwardIcon className='bg-orange hover:translate-x-2 scale-150 transition-all duration-700' /></IconButton></span>
+                    <IconButton onClick={next} className='group transform-gpu'>
+                        <ArrowForwardIcon
+                            className='pointer-events-none inline-block scale-150 transition-transform duration-300 ease-out will-change-transform group-hover:translate-x-2'
+                            sx={{ color: '#fb923c' }}
+                        />
+                    </IconButton>
                 </div>
         </div>
     )
