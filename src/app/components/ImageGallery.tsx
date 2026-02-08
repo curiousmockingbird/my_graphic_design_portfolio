@@ -37,8 +37,9 @@ function ImageGallery({
     headerText,
     images,
     columnsLg,
+    headerClassName,
     //TODO: add columsLg in page components/routes
-}: React.PropsWithChildren<{ headerText: string, images: any, columnsLg:string }>) {
+}: React.PropsWithChildren<{ headerText: string, images: any, columnsLg: string, headerClassName?: string }>) {
     useEffect(() => {
         // Code here runs only in the browser, safely use window
         adjustModalWidth();
@@ -111,7 +112,9 @@ function ImageGallery({
     return (
         <>
             <div className='flex justify-center pb-3'>
-                <h2>{headerText}</h2>
+                <h2 className={`text-xl md:text-2xl font-semibold tracking-wide ${headerClassName ?? ''}`}>
+                    {headerText}
+                </h2>
             </div>
             <div
                 ref={gridRef}

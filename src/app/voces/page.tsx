@@ -39,7 +39,7 @@ return reducedResults;
 export default async function VocesList(){
   
   const image = await getVoces();
-  const splitIndex = 13;
+  const splitIndex = 14;
   const firstGallery = image.slice(0, splitIndex);
   const secondGallery = image.slice(splitIndex);
   
@@ -48,7 +48,12 @@ export default async function VocesList(){
       <Header headerText='@Voces de la Frontera' />
       <ImageGallery images={firstGallery} headerText='Branding' columnsLg='lg:grid-cols-2'/>
       {secondGallery.length > 0 && (
-        <ImageGallery images={secondGallery} headerText='Branding (continued)' columnsLg='lg:grid-cols-2'/>
+        <ImageGallery
+          images={secondGallery}
+          headerText='Brand Guidelines'
+          columnsLg='lg:grid-cols-2'
+          headerClassName='mt-10 pt-6 border-t border-orange-400/40 text-orange-400 uppercase tracking-[0.3em] text-sm md:text-base'
+        />
       )}
     </main>
   )
