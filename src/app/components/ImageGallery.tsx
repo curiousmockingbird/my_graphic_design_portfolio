@@ -13,21 +13,23 @@ let modalStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    width: 350,
     transform: 'translate(-50%, -50%)',
     bgcolor: 'background.paper',
     boxShadow: 24,
-    p: 1,
+    p: 2,
+    width: '90vw',
+    maxWidth: 1200,
+    maxHeight: '90vh',
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
   };
 
   
   const adjustModalWidth = () => {     
-      const screenWidth = window.innerWidth;
-    if (screenWidth <= 375) { // Example breakpoint for small devices
-      modalStyle.width = 350; // Adjust width for small devices
-    } else {
-      modalStyle.width = 510; // Default width for larger devices
-    }
+    // Keep for future responsiveness hooks; width is now fluid.
+    return;
   };
   
 
@@ -152,22 +154,30 @@ function ImageGallery({
                     aria-describedby="modal-modal-description"
                 >   
                     <Box sx={modalStyle}>
-                    <Box >
+                    <Box>
                         <div className='grid grid-cols-10'>
                             <div className='col-end-11 col-span-2 text-right'>
                                 <Button onClick={handleClose}>Close</Button>
                             </div>
                         </div>
-                        {selectedImage && (
-                            <Image
-                                src={selectedImage.secure_url}
-                                alt={selectedImage.alt}
-                                width={selectedImage.width}
-                                height={selectedImage.height}
-                                placeholder='blur'
-                                blurDataURL={selectedImage.blurDataUrl}
-                            />
-                        )}
+                        <div className='flex items-center justify-center' style={{ minHeight: 0 }}>
+                            {selectedImage && (
+                                <Image
+                                    src={selectedImage.secure_url}
+                                    alt={selectedImage.alt}
+                                    width={selectedImage.width}
+                                    height={selectedImage.height}
+                                    placeholder='blur'
+                                    blurDataURL={selectedImage.blurDataUrl}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        maxHeight: '70vh',
+                                        objectFit: 'contain',
+                                    }}
+                                />
+                            )}
+                        </div>
                         <div className='grid grid-cols-12 gap-4 mt-2'>
                             <div className='col-span-4'>
                                 <Button variant="outlined" size="small" onClick={handlePrevious}>Previous</Button>
