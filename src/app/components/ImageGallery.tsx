@@ -79,7 +79,7 @@ function ImageGallery({
             <div className='flex justify-center pb-3'>
                 <h2>{headerText}</h2>
             </div>
-            <div className={`columns-1 md:columns-2 ${columnsLg} gap-4 space-y-4 z-0`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 ${columnsLg} gap-4 z-0`}>
                 {images.map((resource: ImageProps, i: number) => {
                     const publicIdParts = resource.public_id.split('/');
                     const filename = publicIdParts[publicIdParts.length - 1];
