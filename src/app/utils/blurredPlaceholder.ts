@@ -2,9 +2,14 @@ import { getPlaiceholder } from "plaiceholder";
 
 export default async function getBase64Image(imgSrc: string) {
     try {
-        const res = await fetch(imgSrc);
+        // Fetch a tiny Cloudinary variant to keep the response well under the 2MB cache limit.
+        const tinySrc = imgSrc.includes('/upload/')
+            ? imgSrc.replace('/upload/', '/upload/f_auto,q_auto,w_20/')
+            : imgSrc;
+
+        const res = await fetch(tinySrc);
         if (!res.ok) {
-            throw new Error(`Failed to fetch ${imgSrc}`);
+            throw new Error(`Failed to fetch ${tinySrc}`);
         }
         const buffer = await res.arrayBuffer();
         const { base64 } = await getPlaiceholder(Buffer.from(buffer));

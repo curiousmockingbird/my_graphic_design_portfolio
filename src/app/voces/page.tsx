@@ -17,7 +17,7 @@ export const revalidate = 3600;
 async function getVoces() {
 
 const image = await cloudinary.search.expression(`folder=${process.env.VOCES_FOLDER}/*`).sort_by('public_id', 'asc').execute();
- 
+
 const blurImagePromises = await Promise.all(image.resources.map((image: ImageProps) => getBase64Image(image.secure_url)));
 
   // Wait for both the Cloudinary search and the blurred image generation to finish
