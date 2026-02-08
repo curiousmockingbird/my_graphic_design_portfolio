@@ -41,7 +41,7 @@ export default async function IllustrationsList(){
   return ( 
     <main className='main-illustrations'>
       <Header headerText='Personal Work' />
-      <ImageGallery images={image} headerText='Branding' columnsLg='lg:columns-4'/>
+      <ImageGallery images={image} headerText='Illustrations' columnsLg='lg:columns-4'/>
     </main>
   )
 }
