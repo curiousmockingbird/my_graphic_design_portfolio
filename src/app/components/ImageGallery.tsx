@@ -111,8 +111,8 @@ function ImageGallery({
 
     return (
         <>
-            <div className='flex justify-center pb-3'>
-                <h2 className={`text-xl md:text-2xl font-semibold tracking-wide ${headerClassName ?? ''}`}>
+            <div className='flex justify-center pb-6'>
+                <h2 className={`text-xl md:text-2xl font-semibold tracking-wide pt-6 ${headerClassName ?? ''}`}>
                     {headerText}
                 </h2>
             </div>

@@ -46,15 +46,15 @@ export default async function VocesList(){
   return ( 
     <main className='main-illustrations'>
       <Header headerText='@Voces de la Frontera' />
-      <ImageGallery images={firstGallery} headerText='Branding' columnsLg='lg:grid-cols-2'/>
       {secondGallery.length > 0 && (
         <ImageGallery
           images={secondGallery}
           headerText='Brand Guidelines'
           columnsLg='lg:grid-cols-2'
-          headerClassName='mt-10 pt-6 border-t border-orange-400/40 text-orange-400 uppercase tracking-[0.3em] text-sm md:text-base'
+          headerClassName='mt-10 pt-2 border-t border-orange-400/40 text-orange-400 uppercase tracking-[0.3em] text-sm md:text-base'
         />
       )}
+      <ImageGallery images={firstGallery} headerText='Branding' columnsLg='lg:grid-cols-2'/>
     </main>
   )
 }
